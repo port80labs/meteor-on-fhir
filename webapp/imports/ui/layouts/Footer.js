@@ -164,6 +164,12 @@ export class Footer extends React.Component {
   openInfo(){
     browserHistory.push('/info');
   }
+  queryPatients(){
+
+  }
+  querySystemButton(){
+    
+  }
   render () {
     return(
       <div id='appFooter' style={this.data.footerStyle}>

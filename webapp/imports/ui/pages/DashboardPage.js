@@ -192,10 +192,6 @@ export class DashboardPage extends React.Component {
               
                 <Spacer />
                
-                
-            </Col>
-            <Col md={4}>
-
                <GlassCard >
                   <CardTitle title='Weight History' subtitle='subtitle' titleStyle={{color: 'black' }} style={{backgroundColor: '#eeeeee'}}  />
                   <CardText style={{backgroundColor: '#eeeeee'}}>
@@ -210,40 +206,19 @@ export class DashboardPage extends React.Component {
                       xTicks={5}
                       yTicks={3}
                       data={[ [
-                          {x: 1, y: 5},
-                          {x: 2, y: 4.5},
-                          {x: 3, y: 4},
-                          {x: 4, y: 3.5},
-                          {x: 5, y: 3},
-                          {x: 6, y: 2.5},
-                          {x: 7, y: 2},
-                          {x: 8, y: 1.5},
-                          {x: 9, y: 1},
-                          {x: 10, y: 0.5},
-                          {x: 11, y: 0},
-                          {x: 12, y: 0}
-                        ], [
-                          {x: 4, y: 0},
-                          {x: 5, y: 2},
-                          {x: 6, y: 4},
-                          {x: 7, y: 6},
-                          {x: 8, y: 8},
-                          {x: 9, y: 10},
-                          {x: 10, y: 12},
-                          {x: 11, y: 14},
-                          {x: 12, y: 16}
-                        ], [
-                          {x: 1, y: 8},
-                          {x: 2, y: 7.},
-                          {x: 3, y: 6},
-                          {x: 4, y: 5},
-                          {x: 5, y: 4},
-                          {x: 6, y: 3},
-                          {x: 7, y: 2},
-                          {x: 8, y: 1},
-                          {x: 9, y: 0},
-                        ]    
-                      ]}                      
+                          {x: 1, y: 75},
+                          {x: 2, y: 74.5},
+                          {x: 3, y: 74},
+                          {x: 4, y: 73.5},
+                          {x: 5, y: 72},
+                          {x: 6, y: 72.5},
+                          {x: 7, y: 72},
+                          {x: 8, y: 71.5},
+                          {x: 9, y: 71},
+                          {x: 10, y: 70.5},
+                          {x: 11, y: 70},
+                          {x: 12, y: 70}
+                        ]]}                      
                       />
                   </CardText>
                 </GlassCard>                 
@@ -255,17 +230,17 @@ export class DashboardPage extends React.Component {
             </Col>
             <Col md={2}>
               <GlassCard>
-                  <CardTitle title='Eyesight' titleStyle={{color: 'white', float: 'right'}} style={{backgroundColor: this.data.palette.colorB}} />
+                  <CardTitle title='Eyesight' titleStyle={{color: 'black', float: 'right'}} style={{backgroundColor: this.data.palette.colorB}} />
                   <CardText style={{backgroundColor: this.data.palette.colorB}}>
-                    <h1 style={{color: 'white'}}>$0</h1>
+                    <h1>20/20</h1>
                   </CardText>
                 </GlassCard>
 
                 <Spacer />
                 <GlassCard>
-                  <CardTitle title='Total Cost Per Bed' titleStyle={{color: 'white', float: 'right'}} style={{backgroundColor: this.data.palette.colorB}}/>
+                  <CardTitle title='Mile Time' titleStyle={{color: 'black', float: 'right'}} style={{backgroundColor: this.data.palette.colorB}}/>
                   <CardText style={{backgroundColor: this.data.palette.colorB}}>
-                    <h1 style={{color: 'white'}}>$0</h1>
+                    <h1>10 min</h1>
                   </CardText>
                 </GlassCard>
             </Col>

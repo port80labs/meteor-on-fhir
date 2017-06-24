@@ -86,10 +86,9 @@ export class NotificationsPage extends React.Component {
             <CardTitle title="Notifications" titleStyle={this.data.style.title} />
             <CardText>
               <List>
-              <Subheader inset={true}>Files</Subheader>
                 {notificationItems}
                 
-                {/*
+                
                 <ListItem
                   leftAvatar={<Avatar icon={<ContentCopy />} backgroundColor={green600} />}
                   rightIcon={<Clear />}
@@ -168,7 +167,7 @@ export class NotificationsPage extends React.Component {
                   primaryText="Unarchived"
                   secondaryText="Jan 10, 2014"
                   style={this.data.style.notification}
-                />*/}
+                />
 
               </List>
             </CardText>

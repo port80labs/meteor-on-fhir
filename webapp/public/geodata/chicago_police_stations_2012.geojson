@@ -1,0 +1,29 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 1, "NAME": "6TH", "DESCRIPTIO": "006", "ADDRESS": "7808 S HALSTED ST", "DIST": "6" }, "geometry": { "type": "Point", "coordinates": [ -87.644445432505634, 41.751994365402041 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 2, "NAME": "1ST", "DESCRIPTIO": "001", "ADDRESS": "1718 S STATE ST", "DIST": "1" }, "geometry": { "type": "Point", "coordinates": [ -87.628022021202753, 41.858548177577127 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 3, "NAME": "14TH", "DESCRIPTIO": "014", "ADDRESS": "2150 N CALIFORNIA AVE", "DIST": "14" }, "geometry": { "type": "Point", "coordinates": [ -87.697785379392585, 41.921308121711533 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 4, "NAME": "24TH", "DESCRIPTIO": "024", "ADDRESS": "6464 N CLARK ST", "DIST": "24" }, "geometry": { "type": "Point", "coordinates": [ -87.671900914618874, 41.999622063723379 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 5, "NAME": "7TH", "DESCRIPTIO": "007", "ADDRESS": "1400 W 63RD ST", "DIST": "7" }, "geometry": { "type": "Point", "coordinates": [ -87.659812823842984, 41.779759682523697 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 6, "NAME": "9TH", "DESCRIPTIO": "009", "ADDRESS": "3120 S HALSTED ST", "DIST": "9" }, "geometry": { "type": "Point", "coordinates": [ -87.6466226969183, 41.837098379658485 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 7, "NAME": "19TH", "DESCRIPTIO": "019", "ADDRESS": "850 W ADDISON ST", "DIST": "19" }, "geometry": { "type": "Point", "coordinates": [ -87.651199155586639, 41.947557294110048 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 8, "NAME": "25TH", "DESCRIPTIO": "025", "ADDRESS": "5555 W GRAND AVE", "DIST": "25" }, "geometry": { "type": "Point", "coordinates": [ -87.765098639037916, 41.917828060627087 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 9, "NAME": "5TH", "DESCRIPTIO": "005", "ADDRESS": "727 E 111TH ST", "DIST": "5" }, "geometry": { "type": "Point", "coordinates": [ -87.603382987107494, 41.692339806652221 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 10, "NAME": "4TH", "DESCRIPTIO": "004", "ADDRESS": "2255 E 103RD ST", "DIST": "4" }, "geometry": { "type": "Point", "coordinates": [ -87.568644939276751, 41.707611638599616 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 11, "NAME": "10TH", "DESCRIPTIO": "010", "ADDRESS": "3315 W OGDEN AVE", "DIST": "10" }, "geometry": { "type": "Point", "coordinates": [ -87.708393404153455, 41.856442286885944 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 12, "NAME": "15TH", "DESCRIPTIO": "015", "ADDRESS": "5701 W MADISON ST", "DIST": "15" }, "geometry": { "type": "Point", "coordinates": [ -87.768780279017093, 41.879893240193361 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 13, "NAME": "2ND", "DESCRIPTIO": "002", "ADDRESS": "5101 S WENTWORTH AVE", "DIST": "2" }, "geometry": { "type": "Point", "coordinates": [ -87.630067022244432, 41.801221951294586 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 14, "NAME": "3RD", "DESCRIPTIO": "003", "ADDRESS": "7040 S COTTAGE GROVE AVE", "DIST": "3" }, "geometry": { "type": "Point", "coordinates": [ -87.606324302209671, 41.766931649781199 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 15, "NAME": "18TH", "DESCRIPTIO": "018", "ADDRESS": "1158 N LARRABEE ST", "DIST": "18" }, "geometry": { "type": "Point", "coordinates": [ -87.643543811719539, 41.903156747818727 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 16, "NAME": "20TH", "DESCRIPTIO": "020", "ADDRESS": "5400 N LINCOLN AVE", "DIST": "20" }, "geometry": { "type": "Point", "coordinates": [ -87.693091776645318, 41.980114637122746 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 17, "NAME": "12TH", "DESCRIPTIO": "012", "ADDRESS": "1412 S BLUE ISLAND AVE", "DIST": "12" }, "geometry": { "type": "Point", "coordinates": [ -87.657182501192011, 41.863006767692873 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 18, "NAME": "11TH", "DESCRIPTIO": "011", "ADDRESS": "3151 W HARRISON ST", "DIST": "11" }, "geometry": { "type": "Point", "coordinates": [ -87.705549979042004, 41.873305302139819 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 19, "NAME": "16TH", "DESCRIPTIO": "016", "ADDRESS": "5151 N MILWAUKEE AVE", "DIST": "16" }, "geometry": { "type": "Point", "coordinates": [ -87.76612446170607, 41.974401141302749 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 20, "NAME": "CPD HQ", "DESCRIPTIO": "HQ", "ADDRESS": "3510 S MICHIGAN AVE", "DIST": null }, "geometry": { "type": "Point", "coordinates": [ -87.623836202338381, 41.830422483878863 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 21, "NAME": "17TH", "DESCRIPTIO": "017", "ADDRESS": "4650 N PULASKI RD", "DIST": "17" }, "geometry": { "type": "Point", "coordinates": [ -87.728281047517541, 41.966169875317263 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 22, "NAME": "22ND", "DESCRIPTIO": "022", "ADDRESS": "1900 W MONTERREY AVE", "DIST": "22" }, "geometry": { "type": "Point", "coordinates": [ -87.668962951196889, 41.691813056668273 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 23, "NAME": "8TH", "DESCRIPTIO": "008", "ADDRESS": "3420 W 63RD ST", "DIST": "8" }, "geometry": { "type": "Point", "coordinates": [ -87.708867628572079, 41.779082879776098 ] } }
+]
+}

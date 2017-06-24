@@ -1,35 +1,35 @@
 {
   "public": {
-    "title": "Symptomatic",
+    "title": "Meteor on FHIR",
     "theme": {
       "showVideoBackground": false,
       "darkroomTextEnabled": false,
       "defaultVideo": "/VideoBackgrounds/GrayWaves4.mp4",
-      "backgroundImagePath": "/AugmentedReality-Nurse-iStockPhoto.jpg"      
+      "backgroundImagePath": "/backgrounds/medical/Gradient.jpg"
     },
     "app": {
-      "showUnderConstruction": true,
-      "showExperimental": true
+      "showUnderConstruction": false,
+      "showExperimental": false
     },
     "defaults": {
       "avatars": true,
       "barcodes": true,
       "hexgridMenu": true,
       "nfcOrbital": true,
-      "notificationMenu": true,
+      "notificationMenu": false,
       "searchbarVisible": true,
       "displayNavbars": true,
       "disableHeader": false,
       "disableFooter": false,
       "darkroom": false,
       "iFrameEnabled": false,
-      "iFrameUrl": "http://browser.ihtsdotools.org",
+      "iFrameUrl": "https://www.wikipedia.org",
       "paginationLimit": 100,
       "subscriptionLimit": 1000,
       "cards": {
         "height": "auto",
         "opacity": 0.95
-      }      
+      }
     },
     "interfaces": {
       "default": {
@@ -44,7 +44,7 @@
       }
     },
     "meshNetwork": {
-      "upstreamSync": "http://meteor-on-fhir.meteorapp.com/fhir-3.0.0", 
+      "upstreamSync": "http://meteor-on-fhir.meteorapp.com/fhir-3.0.0",
       "autosync": false
     },
     "modules": {
@@ -66,7 +66,7 @@
         "Practitioners": true,
         "Organizations": true,
         "Observations": true,
-        "ImagingStudies": true,
+        "ImagingStudies": false,
         "Locations": true,
         "Lists": true,
         "Medications": true,
