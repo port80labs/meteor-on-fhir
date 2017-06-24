@@ -45,7 +45,7 @@ export class Healthlog extends React.Component {
   render() {
     return (
       <div id="weblogPage">
-        <VerticalCanvas width={600}>
+        <VerticalCanvas>
           { this.renderAuthenticatedUserControls(this.data.state.isLoggedIn) }
           <PostsDeck userId={this.props.routeParams.userId} />
         </VerticalCanvas>

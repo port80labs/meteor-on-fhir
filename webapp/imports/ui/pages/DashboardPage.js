@@ -144,37 +144,37 @@ export class DashboardPage extends React.Component {
           <Row>
             <Col md={2}>
               <GlassCard style={{paddingBottom: '0px', position: 'relative'}}>
-                <CardTitle title='Weight' titleStyle={{color: 'white', float: 'right'}} style={{backgroundColor: "#666666"}}/>
-                <CardText style={{backgroundColor: "#666666"}}>
-                  <h1 style={{color: 'white'}}>0</h1>
+                <CardTitle title='Weight' titleStyle={{color: 'black', float: 'right'}} />
+                <CardText >
+                  <h1 style={{color: 'black'}}>0</h1>
                 </CardText>
               </GlassCard>
               <Spacer />
               <GlassCard style={{paddingBottom: '0px', position: 'relative'}}>
-                <CardTitle title='Body Mass Index' titleStyle={{color: 'white', float: 'right'}} style={{backgroundColor: "#666666"}}/>
-                <CardText style={{backgroundColor: "#666666"}}>
-                  <h1 style={{color: 'white'}}>0</h1>
+                <CardTitle title='Body Mass Index' titleStyle={{color: 'black', float: 'right'}} />
+                <CardText >
+                  <h1 style={{color: 'black'}}>0</h1>
                 </CardText>
               </GlassCard>
               <Spacer />
               <GlassCard style={{paddingBottom: '0px', position: 'relative'}}>
-                <CardTitle title='Resting Heart Rate' titleStyle={{color: 'white', float: 'right'}} style={{backgroundColor: "#999999"}}/>
-                <CardText style={{backgroundColor: "#999999"}}>
-                  <h1 style={{color: 'white'}}>0</h1>
+                <CardTitle title='Resting Heart Rate' titleStyle={{color: 'black', float: 'right'}} />
+                <CardText >
+                  <h1 style={{color: 'black'}}>0</h1>
                 </CardText>
               </GlassCard>
               <Spacer />
               <GlassCard style={{paddingBottom: '0px', position: 'relative'}}>
-                <CardTitle title='Blood Pressure' titleStyle={{color: 'white', float: 'right'}} style={{backgroundColor: "#999999"}}/>
-                <CardText style={{backgroundColor: "#999999"}}>
-                  <h1 style={{color: 'white'}}>0</h1>
+                <CardTitle title='Blood Pressure' titleStyle={{color: 'black', float: 'right'}} />
+                <CardText >
+                  <h1 style={{color: 'black'}}>0</h1>
                 </CardText>
               </GlassCard>
             </Col>
             <Col md={4}>
                 <GlassCard >
-                  <CardTitle title='Exercise Mix' subtitle={ moment(this.data.date).format('YYYY/MM/DD')} titleStyle={{color: 'black'}} style={{backgroundColor: '#eeeeee'}}  /> 
-                  <CardText style={{backgroundColor: '#eeeeee', height: 300}}>
+                  <CardTitle title='Exercise Mix' subtitle={ moment(this.data.date).format('YYYY/MM/DD')} titleStyle={{color: 'black'}}   /> 
+                  <CardText style={{height: 300}}>
                     <PieChart
                       id='averageNumBedsChart'
                       size={200}
@@ -193,8 +193,8 @@ export class DashboardPage extends React.Component {
                 <Spacer />
                
                <GlassCard >
-                  <CardTitle title='Weight History' subtitle='subtitle' titleStyle={{color: 'black' }} style={{backgroundColor: '#eeeeee'}}  />
-                  <CardText style={{backgroundColor: '#eeeeee'}}>
+                  <CardTitle title='Weight History' subtitle='subtitle' titleStyle={{color: 'black' }}   />
+                  <CardText >
                     <AreaChart
                       width={this.data.barchart.width}
                       height={260}

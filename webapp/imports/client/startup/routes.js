@@ -134,7 +134,7 @@ Meteor.startup(() => {
         <Route name="topicById" path="/topic/:topicId" component={ ConversationsPage } onEnter={ requireAuth } />
         <Route name="newTopic" path="/new/topic" component={ NewTopicPage } onEnter={ requireAuth } />
 
-        <Route name="weblog" path="/weblog" component={ Healthlog } />
+        <Route name="healthlog" path="/healthlog" component={ Healthlog } />
         <Route name="weblogByUserId" path="/weblog/:userId" component={ Healthlog } />
 
         <Route name="welcomePatient" path="/welcome/patient" component={ WelcomePatientPage } onEnter={ requireAuth }/>
