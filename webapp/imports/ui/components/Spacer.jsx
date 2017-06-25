@@ -2,7 +2,7 @@ import React from 'react';
 import ReactMixin from 'react-mixin';
 import { ReactMeteorData } from 'meteor/react-meteor-data';
 
-const Spacer = React.createClass({
+export const Spacer = React.createClass({
   getMeteorData() {
     let data = {
       style: {}
@@ -10,7 +10,12 @@ const Spacer = React.createClass({
     if (this.props && this.props.style) {
       data.style = this.props.style;
     }
-    data.style.height = '3.2rem';
+    if (this.props && this.props.height) {
+      data.style.height = this.props.height;
+    } else {
+      data.style.height = '3.2rem';
+    }
+    
     return data;
   },
   render () {
