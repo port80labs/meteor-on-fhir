@@ -45,7 +45,9 @@ export class HexGridPage extends React.Component {
     //let { grid, config } = this.state;
     return(
       <div className="hexGridPage">
-        <HexGrid width={3200} height={1800} viewBox="-50 -50 100 100">
+        <h1 style={{position: 'absolute', top: '160px', left: '200px', color: '#45b3e7', fontSize: '96px', zIndex: 100000}}>Symptomatic Systems</h1><br />
+        
+        <HexGrid width={3600} height={2400} viewBox="-50 -50 100 100" >
           {/* Grid with manually inserted hexagons */}
           <Layout size={{ x: 10, y: 10 }} flat={true} spacing={1.1} origin={{ x: 0, y: 0 }}>
             <Hexagon q={0} r={0} s={0} />

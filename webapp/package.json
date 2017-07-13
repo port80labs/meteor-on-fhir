@@ -76,7 +76,7 @@
     "react-event-listener": "^0.4.5",
     "react-faux-dom": "^3.1.0",
     "react-fontawesome": "^1.6.1",
-    "react-hexgrid": "1.0.0-rc4",
+    "react-hexgrid": "1.0.0",
     "react-highcharts": "^8.4.2",
     "react-katex": "^1.1.0",
     "react-komposer": "^1.13.1",

@@ -54,8 +54,13 @@ export class SciFiPage extends React.Component {
   getMeteorData() {
     var data = {
       orbital: {
+        //// right orbital
         'top': Session.get('appHeight') - 380,
         'left': Session.get('appWidth') - 380,
+
+        //// left orbital
+        // 'top': Session.get('appHeight') - 400,
+        // 'left': 40,
         'position': 'absolute',
         'WebkitTransition': 'ease 1s',
         'transition': 'ease 1s'
