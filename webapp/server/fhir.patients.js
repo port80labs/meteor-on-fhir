@@ -2,17 +2,20 @@ import FHIR from 'fhir';
 import { HTTP } from 'meteor/http';
 import { Meteor } from 'meteor/meteor';
 import { Promise } from 'meteor/promise';
-import { parseString } from 'xml2js';
+//import { parseString } from 'xml2js';
 
 var fhir = new FHIR(FHIR.DSTU1);
 
 Meteor.methods({
   queryEpic: function(resourceType){
+    check(resourceType, String);
     console.log('-----------------------------------------');
     console.log('Querying open.epic.com...', resourceType);
 
     if(resourceType === "Patient"){
       var httpResult = HTTP.get('https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient/Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB');
+
+      //console.log('httpResult', httpResult)
 
       const patientJson = Promise.await(fhir.XmlToObject(httpResult.content));
 
