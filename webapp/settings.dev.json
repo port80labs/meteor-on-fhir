@@ -15,7 +15,7 @@
       "avatars": true,
       "barcodes": true,
       "hexgridMenu": false,
-      "nfcOrbital": true,
+      "nfcOrbital": false,
       "notificationMenu": false,
       "searchbarVisible": true,
       "displayNavbars": true,
@@ -23,7 +23,7 @@
       "disableFooter": false,
       "darkroom": false,
       "iFrameEnabled": false,
-      "iFrameUrl": "http://browser.ihtsdotools.org",
+      "iFrameUrl": "",
       "paginationLimit": 100,
       "subscriptionLimit": 1000,
       "cards": {

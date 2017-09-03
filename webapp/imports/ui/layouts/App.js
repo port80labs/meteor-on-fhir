@@ -13,11 +13,14 @@ import ReactMixin  from 'react-mixin';
 import { SciFiPage } from '/imports/ui/pages/SciFiPage';
 import { Session } from 'meteor/session';
 import { SinglePanelLayout } from '/imports/ui/layouts/SinglePanelLayout';
+import { Spacer } from '/imports/ui/components/Spacer';
 import { VerticalCanvas } from '/imports/ui/components/VerticalCanvas';
 // Material UI Theming
 import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import { get } from 'lodash';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import { moment } from 'meteor/momentjs:moment';
 
 const muiTheme = getMuiTheme({
   palette: {
@@ -116,11 +119,25 @@ export class App extends React.Component {
             </div>
             <div className='secondaryFlexPanel' style={this.data.style.secondary}>
               <VerticalCanvas>
-                <GlassCard style={this.data.style.card} height='auto'>
+                <GlassCard style={this.data.style.card} height='600'>
+                  <img src='robot.heart.jpg' style={{width: '400px', height: '100%', left: '0px', position: 'absolute',  objectFit: 'cover'}}/>
+                  <CardText style={{marginLeft: '400px'}}>
+                    <h3 style={{color: '#dddddd'}}>Chicago FHIR Card</h3>
+                    <CardTitle title={ get(Meteor.user(), 'profile.name.given') + ' ' + get(Meteor.user(), 'profile.name.family')} titleStyle={{fontSize: '48px'}} />
+                  </CardText>
+                </GlassCard>
+
+                <Spacer />
+                
+                <GlassCard style={this.data.style.card} height='600'>
+                  <CardHeader title={'City of Chicago'} style={{textAlign: 'left'}} />
+                  <CardHeader title={'Issue Date: ' + moment().format("YYYY-MMM-DD")} style={{top: '0px', position: 'absolute', right: '0px', textAlign: 'right' }} />
+                  <div style={{width: '100%', backgroundColor: 'silver', height: '100px'}}></div>
                   <CardText>
-                    <object id="iframe" type="text/html" data={this.data.browserWindowLocation} style={this.data.style.content}>
-                      <p>unable to load </p>
-                    </object>
+                    <h4 className='barcode' style={{textAlign: 'center', fontSize: '48px'}}>{ get(Meteor.user(), '_id') }</h4>
+                    <img src='fhir-logo-thumb.png' style={{width: '100px', bottom: 48, position: 'absolute'}}/>
+                    <h2 style={{color: '#eeeeee', left: '100px', bottom: '32px', fontSize: '96px', position: 'absolute'}}>FHIR</h2>
+                    <h2 style={{color: '#e20d19', bottom: 0, position: 'absolute'}}>Fast Healthcare Interoperability Resources</h2>
                   </CardText>
                 </GlassCard>
               </VerticalCanvas>

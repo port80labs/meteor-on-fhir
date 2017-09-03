@@ -63,6 +63,10 @@ export class PractitionerSidebar extends React.Component {
              <ListItem primaryText='Users' href='/users' />
           </IndexLinkContainer>
 
+          <IndexLinkContainer to='/theming'>
+             <ListItem primaryText='Theming' href='/theming' />
+          </IndexLinkContainer>
+          
           <IndexLinkContainer to='/signin'>
              <ListItem className='logoutMenuItem' primaryText='Logout' href='/signin' onClick={this.handleLogout} />
           </IndexLinkContainer>

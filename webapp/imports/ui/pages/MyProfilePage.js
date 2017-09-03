@@ -478,7 +478,7 @@ export class MyProfilePage extends React.Component {
 
           <Spacer />
           <GlassCard>
-            <CardTitle title="Resources" subtitle='Healthcare data is attached to your profile via resources.' />
+            <CardTitle title="Health Resources" subtitle='Healthcare data is attached to your profile via resources.' />
             <CardText>
               ---
             </CardText>
