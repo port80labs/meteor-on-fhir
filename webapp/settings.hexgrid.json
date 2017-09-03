@@ -2,10 +2,10 @@
   "public": {
     "title": "Symptomatic",
     "theme": {
-      "showVideoBackground": true,
+      "showVideoBackground": false,
       "darkroomTextEnabled": false,
-      "defaultVideo": "/VideoBackgrounds/GrayWaves.mp4",
-      "backgroundImagePath": ""      
+      "defaultVideo": "/VideoBackgrounds/GrayWaves4.mp4",
+      "backgroundImagePath": "/AugmentedReality-Nurse-iStockPhoto.jpg"      
     },
     "app": {
       "showUnderConstruction": true,

@@ -120,10 +120,18 @@ export class App extends React.Component {
             <div className='secondaryFlexPanel' style={this.data.style.secondary}>
               <VerticalCanvas>
                 <GlassCard style={this.data.style.card} height='600'>
-                  <img src='robot.heart.jpg' style={{width: '400px', height: '100%', left: '0px', position: 'absolute',  objectFit: 'cover'}}/>
-                  <CardText style={{marginLeft: '400px'}}>
-                    <h3 style={{color: '#dddddd'}}>Chicago FHIR Card</h3>
+                  <img src='homeless1.png' style={{width: '400px', height: '100%', left: '0px', position: 'absolute',  objectFit: 'cover'}}/>
+                  <CardText style={{marginLeft: '420px'}}>                    
+                    <span style={{float: 'right', color: 'steelblue', fontSize: '112px', marginRight: '20px', position: 'absolute', top: '-30px', right: '30px'}}> 	&#8902; 	&#8902; 	&#8902; 	&#8902;</span>
+                    <h3 style={{color: '#dddddd'}}>City of Chicago </h3>
                     <CardTitle title={ get(Meteor.user(), 'profile.name.given') + ' ' + get(Meteor.user(), 'profile.name.family')} titleStyle={{fontSize: '48px'}} />
+                    <h5>1998-01-18</h5>
+                    <h5>Brown</h5>
+                    <h5>Brown</h5>
+                    <h5>5'6"</h5>
+                    <h5>165lbs</h5>
+                    <h5>1849 W. Cornelia Ave.</h5>
+                    <h5>Chicago, IL  60618</h5>
                   </CardText>
                 </GlassCard>
 

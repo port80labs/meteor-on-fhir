@@ -61,19 +61,19 @@
       "fhir": {
         "AuditEvents": true,
         "Conditions": true,
-        "Devices": true,
+        "Devices": false,
         "ImagingStudies": false,
         "Immunizations": true,
-        "Locations": true,
-        "Lists": true,
+        "Locations": false,
+        "Lists": false,
         "Medications": true,
         "Organizations": true,
-        "Observations": true,
+        "Observations": false,
         "Patients": true,
-        "Practitioners": true,
-        "Procedures": true,
-        "Questionnaires": true,
-        "RiskAssessments": true
+        "Practitioners": false,
+        "Procedures": false,
+        "Questionnaires": false,
+        "RiskAssessments": false
       }
     }
   },
