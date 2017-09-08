@@ -1,5 +1,5 @@
 // base layout
-import { CardHeader, CardText, CardTitle } from 'material-ui/Card';
+import { CardActions, CardHeader, CardText, CardTitle } from 'material-ui/Card';
 import {teal400, teal600} from 'material-ui/styles/colors';
 
 import { Footer } from '/imports/ui/layouts/Footer';
@@ -124,15 +124,16 @@ export class App extends React.Component {
                   <CardText style={{marginLeft: '420px'}}>                    
                     <span style={{float: 'right', color: 'steelblue', fontSize: '112px', marginRight: '20px', position: 'absolute', top: '-30px', right: '30px'}}> 	&#8902; 	&#8902; 	&#8902; 	&#8902;</span>
                     <h3 style={{color: '#dddddd'}}>City of Chicago </h3>
-                    <CardTitle title={ get(Meteor.user(), 'profile.name.given') + ' ' + get(Meteor.user(), 'profile.name.family')} titleStyle={{fontSize: '48px'}} />
-                    <h5>1998-01-18</h5>
-                    <h5>Brown</h5>
-                    <h5>Brown</h5>
-                    <h5>5'6"</h5>
-                    <h5>165lbs</h5>
-                    <h5>1849 W. Cornelia Ave.</h5>
-                    <h5>Chicago, IL  60618</h5>
+                    <CardTitle title={ get(Meteor.user(), 'profile.name.given') + ' ' + get(Meteor.user(), 'profile.name.family')} titleStyle={{fontSize: '48px', left: '-40px'}} />
+                    <h4>1955-01-18</h4>
+                    <h4>1849 W. Cornelia Ave.</h4>
+                    <h4>Chicago, IL  60618</h4>
+                    <h4>Brown</h4>
+                    <h4>Brown</h4>
+                    <h4>5'6"</h4>
+                    <h4>165lbs</h4>
                   </CardText>
+                  <div style={{fontSize: '36px', bottom: '10px', position: 'absolute', paddingRight: '60px', right: '0px'}}>01-CAM-55-370441</div>
                 </GlassCard>
 
                 <Spacer />
@@ -143,6 +144,7 @@ export class App extends React.Component {
                   <div style={{width: '100%', backgroundColor: 'silver', height: '100px'}}></div>
                   <CardText>
                     <h4 className='barcode' style={{textAlign: 'center', fontSize: '48px'}}>{ get(Meteor.user(), '_id') }</h4>
+                    <h4 className='barcode' style={{textAlign: 'center', fontSize: '36px'}}>5782389748</h4>
                     <img src='fhir-logo-thumb.png' style={{width: '100px', bottom: 48, position: 'absolute'}}/>
                     <h2 style={{color: '#eeeeee', left: '100px', bottom: '32px', fontSize: '96px', position: 'absolute'}}>FHIR</h2>
                     <h2 style={{color: '#e20d19', bottom: 0, position: 'absolute'}}>Fast Healthcare Interoperability Resources</h2>

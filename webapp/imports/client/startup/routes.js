@@ -64,6 +64,7 @@ import { SciFiPage } from '/imports/ui/pages/SciFiPage';
 import { ServerConfigurationPage } from '/imports/ui/workflows/oauth/ServerConfigurationPage';
 import { Signin } from '/imports/ui/pages/Signin';
 import { Signup } from '/imports/ui/pages/Signup';
+import { SiteStatisticsPage } from '/imports/ui/pages/SiteStatisticsPage';
 import { SpecificitySensitivityCard } from '/imports/ui/components/SpecificitySensitivityCard';
 import { TelemedicinePage } from '/imports/ui/pages/TelemedicinePage';
 import { ThemePage } from '/imports/ui/pages/ThemePage';
@@ -215,6 +216,11 @@ Meteor.startup(() => {
         <Route name="DiagnosticReportsPage" path="/diagnostic-reports" component={ DiagnosticReportsPage }  onEnter={ requireAuth }/>
         <Route name="MedicationOrdersPage" path="/medication-orders" component={ MedicationOrdersPage }  onEnter={ requireAuth }/>
         <Route name="MedicationStatementsPage" path="/medication-statements" component={ MedicationStatementsPage }  onEnter={ requireAuth }/>
+
+        <Route name="SiteStatisticsPage" path="/site-statistics" component={ SiteStatisticsPage }  onEnter={ requireAuth }/>
+
+
+
 
         <Route path="*" component={ NotFound } />
 
