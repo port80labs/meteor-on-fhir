@@ -12,10 +12,6 @@ machine:
     CXX: g++-4.8
     DISPLAY: :99.0
     NPM_PREFIX: /home/ubuntu/nvm/v0.10.33
-    INITIALIZE: false
-    Patients: true
-    Practitioners: true
-    METEOR_SETTINGS: '{"public": {"title": "Meteor on FHIR"},"private": {"practitionerAccessCode": "hippocrates", "sysadminAccessCode": "rootaccess"}}'
 
 
 ## Customize checkout
@@ -29,6 +25,8 @@ general:
   artifacts:
     - "./tests/nightwatch/screenshots" # relative to the build directory
     - "./tests/nightwatch/logs" # relative to the build directory
+    - "./webapp/tests/nightwatch/screenshots" # relative to the build directory
+    - "./webapp/tests/nightwatch/logs" # relative to the build directory
 
 ## Customize dependencies
 dependencies:
@@ -59,12 +57,20 @@ test:
     - cd webapp && meteor --version
     - cd webapp && meteor npm install --production
     - cd webapp && meteor npm install nightwatch chromedriver@2.19.0 phantomjs-prebuilt selenium-server-standalone-jar@2.45.0
-    #- meteor npm install --save jquery bootstrap react react-dom react-router react-bootstrap react-komposer react-router-bootstrap faker jquery-validation react-addons-css-transition-group react-addons-pure-render-mixin react-mixin faker react-highcharts eslint-plugin-react eslint-plugin-meteor eslint-config-eslint
-    # - meteor npm install --production
 
+    #- we sometimes develop with proprietary packages; make sure we remove them for tests
+    #- cd webapp && meteor remove clinical:landing-page
+
+    #- make sure we have our tests
+    - cd webapp/tests && ls -la
+    - cd webapp/tests && git clone https://github.com/awatson1978/meteor-on-fhir-validation nightwatch
+
+    #- run the app
     - "cd webapp && meteor run --settings settings.circle.json":
           background: true
-    - sleep 120
+    - sleep 300
+
+  #- the run our tests
   override:
     - cd webapp && meteor npm run-script circle-nightwatch
 

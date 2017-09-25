@@ -1,12 +1,12 @@
-import { IndexLinkContainer } from 'react-router-bootstrap';
 import { List, ListItem } from 'material-ui/List';
-import React from 'react';
-import ReactMixin from 'react-mixin';
-import { browserHistory } from 'react-router';
-import { Meteor } from 'meteor/meteor';
-import { Session } from 'meteor/session';
 
+import { IndexLinkContainer } from 'react-router-bootstrap';
+import { Meteor } from 'meteor/meteor';
+import React from 'react';
 import { ReactMeteorData } from 'meteor/react-meteor-data';
+import ReactMixin from 'react-mixin';
+import { Session } from 'meteor/session';
+import { browserHistory } from 'react-router';
 
 export class PatientSidebar extends React.Component {
   getMeteorData() {
@@ -48,14 +48,10 @@ export class PatientSidebar extends React.Component {
             <ListItem className="indexItem" href='/' primaryText='Index' />
           </IndexLinkContainer>
 
-          <IndexLinkContainer to='/myprofile'>
-            <ListItem className="profileMenuItem" href='/myprofile' primaryText='Profile' />
+          <IndexLinkContainer to='/provider-directory'>
+             <ListItem primaryText='Provider Directory' href='/provider-directory' />
           </IndexLinkContainer>
-
-          <IndexLinkContainer to='/observations'>
-             <ListItem primaryText='Observations' href='/observations' />
-          </IndexLinkContainer>
-
+          
           <IndexLinkContainer to='/weblog'>
              <ListItem primaryText='Healthlog' href='/weblog' />
           </IndexLinkContainer>

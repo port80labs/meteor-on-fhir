@@ -1,19 +1,20 @@
-import React  from 'react';
-import ReactMixin  from 'react-mixin';
-import { ReactMeteorData } from 'meteor/react-meteor-data';
+import { CardText, CardTitle } from 'material-ui/Card';
+import { Tab, Tabs } from 'material-ui/Tabs';
+import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 
-import { Tabs, Tab } from 'material-ui/Tabs';
+import { Checklist } from '/imports/ui/workflows/lists/Checklist';
+import ChecklistTableRow from '/imports/ui/workflows/lists/ChecklistTableRow';
+import Glass from '/imports/ui/Glass';
 import { GlassCard } from '/imports/ui/components/GlassCard';
-import { CardTitle, CardText } from 'material-ui/Card';
+import { Meteor } from 'meteor/meteor';
+import React  from 'react';
+import { ReactMeteorData } from 'meteor/react-meteor-data';
+import ReactMixin  from 'react-mixin';
 import { VerticalCanvas } from '/imports/ui/components/VerticalCanvas';
+
 // import { Table, TableRow, TableBody, TableHeader, TableHeaderColumn, TableRowColumn } from 'material-ui/Table';
 
-import { Table, TableRow, TableBody, TableHeader, TableHeaderColumn, TableRowColumn } from 'material-ui/Table';
-import ChecklistTableRow from '/imports/ui/workflows/lists/ChecklistTableRow';
-import { Checklist } from '/imports/ui/workflows/lists/Checklist';
 
-import { Meteor } from 'meteor/meteor';
-import Glass from '/imports/ui/Glass';
 
 
 
@@ -30,7 +31,8 @@ export class ChecklistsPage extends React.Component {
         tab: {
           borderBottom: '1px solid lightgray',
           borderRight: 'none'
-        }
+        },
+        rowText: Glass.darkroom({cursor: 'pointer'})
       },
       state: {
         isLoggedIn: false
@@ -97,7 +99,7 @@ export class ChecklistsPage extends React.Component {
     let listRows = [];
     for (var i = 0; i < this.data.lists.length; i++) {
       listRows.push(
-        <ChecklistTableRow key={i} style={{cursor: 'pointer'}} onClick={this.fooClick.bind('this', this.data.lists[i]._id)} >
+        <ChecklistTableRow key={i} style={this.data.style.rowText} onClick={this.fooClick.bind('this', this.data.lists[i]._id)} >
           <TableRowColumn>{this.data.lists[i].status}</TableRowColumn>
           <TableRowColumn>{this.data.lists[i].date}</TableRowColumn>
           <TableRowColumn>{this.data.lists[i].code}</TableRowColumn>
@@ -107,15 +109,16 @@ export class ChecklistsPage extends React.Component {
     return (
       <div id="checklistsPage">
         <VerticalCanvas>
-          <GlassCard>
+          <GlassCard height='auto'>
             <CardTitle
               title="Checklists"
+              titleStyle={this.data.style.rowText}
             />
             <CardText>
               <Tabs id="checklistsPageTabs" default value={this.data.tabIndex} onChange={this.handleTabChange} initialSelectedIndex={0}>
                 <Tab className="checklistListTab" label='Checklists' onActive={this.handleActive} style={this.data.style.tab} value={0}>
                   <Table onCellClick={this.rowClick.bind(this)}>
-                    <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
+                    <TableHeader displaySelectAll={false} adjustForCheckbox={false} style={this.data.style.rowText} >
                       <TableRow >
                         <TableHeaderColumn>Status</TableHeaderColumn>
                         <TableHeaderColumn>Created At</TableHeaderColumn>

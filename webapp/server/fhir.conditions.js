@@ -19,7 +19,7 @@ Meteor.methods({
       console.log('Try setting NODE_ENV=test');
     }
   },
-  initializeCondition:function(){
+  initializeConditions:function(){
 
     if (Conditions.find().count() === 0) {
       console.log('No records found in Conditions collection.  Lets create some...');
@@ -51,7 +51,9 @@ Meteor.methods({
     if (process.env.NODE_ENV === 'test') {
       console.log('-----------------------------------------');
       console.log('Dropping conditions... ');
-      Conditions.remove({});
+      Conditions.find().forEach(function(condition){
+        Conditions.remove({_id: condition._id});
+      });
     } else {
       console.log('This command can only be run in a test environment.');
       console.log('Try setting NODE_ENV=test');

@@ -1,24 +1,25 @@
-import { CardTitle, CardText, CardHeader } from 'material-ui/Card';
+import { CardActions, CardHeader, CardText, CardTitle } from 'material-ui/Card';
 import { Col, Grid, Row } from 'react-bootstrap';
-import { Tabs, Tab } from 'material-ui/Tabs';
-import { browserHistory } from 'react-router';
-import RaisedButton from 'material-ui/RaisedButton';
-import { FontIcon } from 'material-ui/FontIcon';
-import TextField from 'material-ui/TextField';
-import React from 'react';
-import ReactMixin from 'react-mixin';
+import { Tab, Tabs } from 'material-ui/Tabs';
+import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 
 import { Accounts } from 'meteor/accounts-base';
-import { Meteor } from 'meteor/meteor';
-import { ReactMeteorData } from 'meteor/react-meteor-data';
-import Spacer from '/imports/ui/components/Spacer';
-
-import { GlassCard } from '/imports/ui/components/GlassCard';
-import { VerticalCanvas } from '/imports/ui/components/VerticalCanvas';
-import { removeUserById } from '../../api/users/methods';
 import Avatar from 'material-ui/Avatar';
-
+import Divider from 'material-ui/Divider';
+import FlatButton from 'material-ui/FlatButton';
+import { FontIcon } from 'material-ui/FontIcon';
 import Glass from '/imports/ui/Glass';
+import { GlassCard } from '/imports/ui/components/GlassCard';
+import { Meteor } from 'meteor/meteor';
+import RaisedButton from 'material-ui/RaisedButton';
+import React from 'react';
+import { ReactMeteorData } from 'meteor/react-meteor-data';
+import ReactMixin from 'react-mixin';
+import Spacer from '/imports/ui/components/Spacer';
+import TextField from 'material-ui/TextField';
+import { VerticalCanvas } from '/imports/ui/components/VerticalCanvas';
+import { browserHistory } from 'react-router';
+import { removeUserById } from '../../api/users/methods';
 
 let defaultState = {
   index: 0,
@@ -80,6 +81,16 @@ export class MyProfilePage extends React.Component {
       },
       header: {
         avatar: 'noAvatar.png'
+      }, 
+      address: {
+        line: '',
+        city: '',
+        state: '',
+        postalCode: '',
+        country: '',
+        latitude: '',
+        longitude: '',
+        latlng: '0.0, 0.0'
       }
     };
 
@@ -99,7 +110,7 @@ export class MyProfilePage extends React.Component {
         longitude: '',
         latitude: '',
         profileImage: Meteor.user().profile.avatar
-      };
+      };      
       if (Meteor.user().profile && Meteor.user().profile.avatar) {
         data.user.profileImage = Meteor.user().profile.avatar;
         data.header.avatar = Meteor.user().profile.avatar;
@@ -117,6 +128,44 @@ export class MyProfilePage extends React.Component {
         data.user.family = '';
         data.user.fullName = '';
       }
+      if(Meteor.user() && Meteor.user().profile && Meteor.user().profile.locations  && Meteor.user().profile.locations.home && Meteor.user().profile.locations.home.address){
+        if(Meteor.user().profile.locations.home.address.line){
+          data.address.line = Meteor.user().profile.locations.home.address.line;
+        }
+        if(Meteor.user().profile.locations.home.address.city){
+          data.address.city = Meteor.user().profile.locations.home.address.city;
+        }
+        if(Meteor.user().profile.locations.home.address.state){
+          data.address.state = Meteor.user().profile.locations.home.address.state;
+        }
+        if(Meteor.user().profile.locations.home.address.postalCode){
+          data.address.postalCode = Meteor.user().profile.locations.home.address.postalCode;
+        }
+        if(Meteor.user().profile.locations.home.address.country){
+          data.address.country = Meteor.user().profile.locations.home.address.country;
+        }
+      }
+      if(Meteor.user() && Meteor.user().profile && Meteor.user().profile.locations  && Meteor.user().profile.locations.home && Meteor.user().profile.locations.home.position){
+        if(Meteor.user().profile.locations.home.position.latitude && Meteor.user().profile.locations.home.position.longitude){
+          data.address.latlng = Meteor.user().profile.locations.home.position.latitude + ', ' + Meteor.user().profile.locations.home.position.longitude;
+        }
+
+        // var latlngString = '';
+
+        // if(Meteor.user().profile.locations.home.position.latitude){
+        //   data.address.latlng = Meteor.user().profile.locations.home.position.latitude.toString() + ', ';
+        // } else {
+        //   data.address.latlng = '';
+        // }
+        // if(Meteor.user().profile.locations.home.position.longitude){
+        //   data.address.latlng = data.address.latlng + Meteor.user().profile.locations.home.position.longitude.toString();
+        // } else {
+        //   data.address.latlng = '';          
+        // }
+        // data.address.latlng = latlngString;
+        
+      }
+
     }
 
     if (Session.get('appWidth') > 768) {
@@ -159,43 +208,70 @@ export class MyProfilePage extends React.Component {
 
                 <Tab className='demographicsTab' label='Demographics' style={this.data.style.tab} value={0} >
                   <div id='profileDemographicsPane' style={{position: 'relative'}}>
-                    <TextField
-                      id='givenNameInput'
-                      ref='given'
-                      name='given'
-                      type='text'
-                      floatingLabelText='given name'
-                      value={this.data.user.given}
-                      fullWidth
-                      /><br/>
-                    <TextField
-                      id='familyNameInput'
-                      ref='family'
-                      name='family'
-                      type='text'
-                      floatingLabelText='family name'
-                      value={this.data.user.family}
-                      fullWidth
-                      /><br/>
-                    <TextField
-                      id='birthdateInput'
-                      ref='birthdate'
-                      name='birthdate'
-                      type='text'
-                      floatingLabelText='date of birth (yyyy-mm-dd)'
-                      value={this.data.user.birthdate}
-                      fullWidth
-                      /><br/>
-                    <TextField
-                      id='avatarInput'
-                      ref='avatar'
-                      name='avatar'
-                      type='text'
-                      floatingLabelText='avatar'
-                      value={this.data.user.avatar}
-                      onChange={ this.handleChangeAvatar.bind(this) }
-                      fullWidth
-                      /><br/>
+                    <Row>
+                      <Col md={6}>
+                        <TextField
+                          id='givenNameInput'
+                          ref='given'
+                          name='given'
+                          type='text'
+                          floatingLabelText='given name'
+                          value={this.data.user.given}
+                          fullWidth
+                          /><br/>
+                      </Col>
+                      <Col md={6}>
+                        <TextField
+                          id='familyNameInput'
+                          ref='family'
+                          name='family'
+                          type='text'
+                          floatingLabelText='family name'
+                          value={this.data.user.family}
+                          fullWidth
+                          /><br/>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col md={3}>
+                        <TextField
+                          id='birthdateInput'
+                          ref='birthdate'
+                          name='birthdate'
+                          type='date'
+                          floatingLabelText='date of birth (yyyy-mm-dd)'
+                          floatingLabelFixed={true}
+                          value={this.data.user.birthdate}
+                          fullWidth
+                          /><br/>
+                      </Col>
+                      <Col md={3}>
+                        <TextField
+                          id='genderInput'
+                          ref='gender'
+                          name='gender'
+                          type='text'
+                          floatingLabelText='gender'
+                          value={this.data.user.gender}
+                          // onChange={ this.handleChangeAvatar.bind(this) }
+                          fullWidth
+                          /><br/>
+
+                      </Col>
+                      <Col md={6}>
+                        <TextField
+                          id='avatarInput'
+                          ref='avatar'
+                          name='avatar'
+                          type='text'
+                          floatingLabelText='avatar'
+                          value={this.data.user.avatar}
+                          onChange={ this.handleChangeAvatar.bind(this) }
+                          fullWidth
+                          /><br/>
+
+                      </Col>
+                    </Row>
                   </div>
                 </Tab>
 
@@ -207,7 +283,7 @@ export class MyProfilePage extends React.Component {
                       id='oldPasswordInput'
                       ref='oldPassword'
                       name='oldPassword'
-                      type='password'
+                      type='text'
                       floatingLabelText='oldPassword'
                       floatingLabelFixed={true}
                       value={this.data.state.oldPassword}
@@ -218,7 +294,7 @@ export class MyProfilePage extends React.Component {
                       id='newPasswordInput'
                       ref='newPassword'
                       name='newPassword'
-                      type='password'
+                      type='text'
                       floatingLabelText='newPassword'
                       floatingLabelFixed={true}
                       value={this.data.state.newPassword}
@@ -229,7 +305,7 @@ export class MyProfilePage extends React.Component {
                       id='confirmPasswordInput'
                       ref='confirmPassword'
                       name='confirmPassword'
-                      type='password'
+                      type='text'
                       floatingLabelText='confirmPassword'
                       floatingLabelFixed={true}
                       value={this.data.state.confirmPassword}
@@ -247,35 +323,164 @@ export class MyProfilePage extends React.Component {
                   </div>
                 </Tab>
 
-                <Tab className="systemTab" label='System' style={this.data.style.tab} value={3}>
+                <Tab className="systemTab" label='Preferences' style={this.data.style.tab} value={3}>
                   <div id="profileSystemPane" style={{position: "relative"}}>
-                    <TextField
-                      id='idInput'
-                      ref='_id'
-                      name='_id'
-                      type='text'
-                      floatingLabelText='symptomatic _id'
-                      value={this.data.user._id}
-                      fullWidth
-                      disabled
-                      /><br/>
-                    <TextField
-                      id='emailInput'
-                      ref='email'
-                      name='email'
-                      type='text'
-                      floatingLabelText='symptomatic email'
-                      value={this.data.user.email}
-                      fullWidth
-                      disabled
-                      /><br/>
+                    <Table>
+                    <TableBody displayRowCheckbox={false} showRowHover={true}>>
+                      <TableRow>
+                        <TableRowColumn style={{width: '200px'}}>
+                          <FlatButton label='Show Navbars' />
+                        </TableRowColumn>
+                        <TableRowColumn>Display the header and footer navbars.</TableRowColumn>
+                      </TableRow>
+                      <TableRow>
+                        <TableRowColumn>
+                          <FlatButton label='Show Search' />
+                        </TableRowColumn>
+                        <TableRowColumn>Display the search ribbon.</TableRowColumn>
+                      </TableRow>
+                      <TableRow>
+                        <TableRowColumn>
+                          <FlatButton label='Autoheight' />
+                        </TableRowColumn>
+                        <TableRowColumn>Fit to use the available spaec.  Otherwise, use veritical scroll.</TableRowColumn>
+                      </TableRow>
+                      <TableRow>
+                        <TableRowColumn>
+                          <FlatButton label='Margins' />
+                        </TableRowColumn>
+                        <TableRowColumn>Layout with or without border margins.</TableRowColumn>
+                      </TableRow>
 
+                      <TableRow>
+                        <TableRowColumn>
+                          <FlatButton label='Card/Panel' />
+                        </TableRowColumn>
+                        <TableRowColumn>Card layout or Panel layout</TableRowColumn>
+                      </TableRow>
+                      <TableRow>
+                        <TableRowColumn>
+                          <FlatButton label='Secondary' />
+                        </TableRowColumn>
+                        <TableRowColumn>Display the secondary iframe panel</TableRowColumn>
+                      </TableRow>
+                      <TableRow>
+                        <TableRowColumn>
+                          <FlatButton label='Docks' />
+                        </TableRowColumn>
+                        <TableRowColumn>Display inbox dock</TableRowColumn>
+                      </TableRow>
+                      <TableRow>
+                        <TableRowColumn>
+                          <FlatButton label='Narrow Navs' />
+                        </TableRowColumn>
+                        <TableRowColumn>Use narrow navbars</TableRowColumn>
+                      </TableRow>
+                    </TableBody>
+                    </Table>
+
+                    <br />
+                    <br />
                     { this.renderConfirmDelete(this.data.state.wantsToDelete) }
                   </div>
                 </Tab>
 
               </Tabs>
 
+            </CardText>
+          </GlassCard>
+
+          <Spacer />
+          <GlassCard>
+            <CardTitle title="Home Address" subtitle='last updated: yyyy/mm/dd' style={{float: 'left'}} />
+            <CardTitle subtitle={this.data.address.latlng} style={{position: 'relative', right: '0px', top: '0px', float: 'right'}}/>
+            <CardText>
+              
+              <Row>
+                <Col md={12}>
+                  <TextField
+                    id='streetAddressInput'
+                    ref='streetAddress'
+                    name='streetAddress'
+                    type='text'
+                    floatingLabelText='Street Address'
+                    floatingLabelFixed={true}                    
+                    value={this.data.address.line}
+                    onChange={ this.changeHomeStreetAddress.bind(this) }
+                    fullWidth
+                    />
+                </Col>
+              </Row>
+              <Row>
+                <Col md={3}>
+                  <TextField
+                    id='cityInput'
+                    ref='city'
+                    name='city'
+                    type='text'
+                    floatingLabelText='City'
+                    floatingLabelFixed={true}
+                    value={this.data.address.city}
+                    onChange={ this.changeHomeCity.bind(this) }
+                    fullWidth
+                    />
+                </Col>
+                <Col md={3}>
+                  <TextField
+                    id='stateInput'
+                    ref='state'
+                    name='state'
+                    type='text'
+                    floatingLabelText='State'
+                    floatingLabelFixed={true}
+                    value={this.data.address.state}
+                    onChange={ this.changeHomeState.bind(this) }
+                    fullWidth
+                    />
+                </Col>
+                <Col md={3}>
+                  <TextField
+                    id='postalCodeInput'
+                    ref='postalCode'
+                    name='postalCode'
+                    type='text'
+                    floatingLabelText='Postal Code'
+                    floatingLabelFixed={true}
+                    value={this.data.address.postalCode}
+                    onChange={ this.changeHomeZip.bind(this) }
+                    fullWidth
+                    />
+                </Col>
+                <Col md={3}>
+                  <TextField
+                    id='countryInput'
+                    ref='country'
+                    name='country'
+                    type='text'
+                    floatingLabelText='Country'
+                    floatingLabelFixed={true}
+                    value={this.data.address.country}
+                    onChange={ this.changeHomeCountry.bind(this) }
+                    fullWidth
+                    />
+                </Col>
+              </Row>
+            </CardText>
+            <CardActions>
+              <FlatButton 
+                label='Geocode' 
+                onClick={this.geocode.bind(this)}
+                />
+            </CardActions>
+          </GlassCard>
+
+
+
+          <Spacer />
+          <GlassCard>
+            <CardTitle title="Resources" subtitle='Healthcare data is attached to your profile via resources.' />
+            <CardText>
+              ---
             </CardText>
           </GlassCard>
         </VerticalCanvas>
@@ -313,11 +518,18 @@ export class MyProfilePage extends React.Component {
       );
     } else {
       return(
-        <RaisedButton id='deleteUserButton' className="muidocs-icon-action-delete" label='Delete User' onClick={this.handleDelete } primary={true} />
+        <div>
+          <Divider />
+          <br />
+          <RaisedButton id='resetPreferencesButton' label='Reset Preferences' onClick={this.resetPreferences } primary={true} style={{marginRight: '20px'}} />
+          <RaisedButton id='deleteUserButton' className="muidocs-icon-action-delete" label='Delete User' onClick={this.handleDelete } primary={true} />
+        </div>
       );
     }
   }
-
+  resetPreferences(){
+    //alert('reset!')
+  }
   rememberOldPassword(event, value){
     let state = Session.get('myProfileState');
     state['oldPassword'] = value;
@@ -345,12 +557,41 @@ export class MyProfilePage extends React.Component {
   }
 
   handleChangeAvatar(event, value) {
-    // if(process.env.NODE_ENV === "test") console.log('Lets change the avatar...');
-    // if(process.env.NODE_ENV === "test") console.log('value', value);
-
     Meteor.users.update({  _id: Meteor.userId()}, {$set:{
       'profile.avatar': value
     }});
+  }
+  changeHomeStreetAddress(event, value) {
+    Meteor.users.update({  _id: Meteor.userId()}, {$set:{
+      'profile.locations.home.address.line': value
+    }});
+  }
+  changeHomeCity(event, value) {
+    Meteor.users.update({  _id: Meteor.userId()}, {$set:{
+      'profile.locations.home.address.city': value
+    }});
+  }
+  changeHomeState(event, value) {
+    Meteor.users.update({  _id: Meteor.userId()}, {$set:{
+      'profile.locations.home.address.state': value
+    }});
+  }
+  changeHomeZip(event, value) {
+    Meteor.users.update({  _id: Meteor.userId()}, {$set:{
+      'profile.locations.home.address.postalCode': value
+    }});
+  }
+  changeHomeCountry(event, value) {
+    Meteor.users.update({  _id: Meteor.userId()}, {$set:{
+      'profile.locations.home.address.country': value
+    }});
+  }
+  geocode(){
+    console.log('lets try geocoding something...');
+    var user = Meteor.user();
+    if(user && user.profile && user.profile.locations && user.profile.locations.home && user.profile.locations.home.address ){
+      Meteor.call('geocode', user.profile.locations.home.address);
+    }
   }
   handleDelete() {
     let state = Session.get('myProfileState');
