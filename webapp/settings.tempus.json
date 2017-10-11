@@ -1,0 +1,90 @@
+{
+  "public": {
+    "title": "Meteor on FHIR",
+    "theme": {
+      "showVideoBackground": false,
+      "darkroomTextEnabled": false,
+      "defaultVideo": "/VideoBackgrounds/Circulation.mp4",
+      "backgroundImagePath": "/backgrounds/medical/Gradient.jpg"
+    },
+    "app": {
+      "showUnderConstruction": true,
+      "showExperimental": false
+    },
+    "defaults": {
+      "avatars": true,
+      "barcodes": true,
+      "hexgridMenu": false,
+      "nfcOrbital": false,
+      "notificationMenu": true,
+      "searchbarVisible": true,
+      "displayNavbars": true,
+      "disableHeader": false,
+      "disableFooter": false,
+      "darkroom": false,
+      "iFrameEnabled": true,
+      "iFrameUrl": "https://www.tempus.com",
+      "paginationLimit": 100,
+      "subscriptionLimit": 1000,
+      "cards": {
+        "height": "auto",
+        "opacity": 0.95
+      }            
+    },
+    "interfaces": {
+      "default": {
+        "status": "active",
+        "channel": {
+          "endpoint": "http://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient/Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUM8bWpetXoB"
+        },
+        "auth": {
+          "username": "foo",
+          "password": "bar"
+        }
+      }
+    },
+    "meshNetwork": {
+      "upstreamSync": "http://meteor-on-fhir.meteorapp.com/fhir-3.0.0", 
+      "autosync": false
+    },
+    "modules": {
+      "data": true,
+      "forum": false,
+      "genome": true,
+      "healthlog": false,
+      "dermatograms": false,
+      "telemedicine": false,
+      "inbound": true,
+      "outbound": true,
+      "epic": true,
+      "statisticsLogging": true,
+      "fhir": {
+        "AllergyIntolerances": true,
+        "AuditEvents": true,
+        "Conditions": true,
+        "Devices": true,
+        "ImagingStudies": false,
+        "Immunizations": true,
+        "Locations": true,
+        "Lists": true,
+        "Medications": true,
+        "MedicationStatements": true,
+        "Organizations": true,
+        "Observations": true,
+        "Patients": true,
+        "Practitioners": true,
+        "Procedures": true,
+        "Questionnaires": true,
+        "RiskAssessments": true
+      }
+    }
+  },
+  "private": {
+    "practitionerAccessCode": "hippocrates",
+    "sysadminAccessCode": "rootaccess",
+    "disableOauth": true,
+    "demo": {
+      "nightlyDatabaseDrop": true
+    }
+  }
+}

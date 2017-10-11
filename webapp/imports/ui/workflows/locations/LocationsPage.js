@@ -18,6 +18,8 @@ import {ScatterplotChart} from 'react-easy-chart';
 import TextField from 'material-ui/TextField';
 import { VerticalCanvas } from '/imports/ui/components/VerticalCanvas';
 
+import { has, get } from 'lodash';
+
 // if(process.env.NODE_ENV !== 'test'){
 //   import GoogleMapReact from 'google-map-react';
 // }
@@ -117,8 +119,8 @@ export class LocationsPage extends React.Component {
       },
       zoom: 10, 
       layers: {
-        heatmap: false,
-        reimbursements: false,
+        heatmap: true,
+        reimbursements: true,
         mortality: false,
         eyeexams: false,
         diabetes: false,
@@ -320,7 +322,7 @@ export class LocationsPage extends React.Component {
     data.style.appbar = Glass.darkroom(data.style.appbar);
     data.style.tab = Glass.darkroom(data.style.tab);
 
-    if(process.env.NODE_ENV === "test") console.log("LocationsPage[data]", data);
+    console.log("LocationsPage[data]", data);
     return data;
   }
 
@@ -381,6 +383,27 @@ export class LocationsPage extends React.Component {
     var markers = [];
     var tspWaypoints = [];
   
+    for (var index = 0; index < 8; index++) {
+      if(self.data.tspRoute[index]){
+        var newWaypoint = {
+          location: {
+            lat: null, 
+            lng: null
+          },
+          stopover: true
+        }
+  
+        if(has(self, 'data.tspRoute[' + index + '].latitude')){
+          newWaypoint.location.lat = get(self, 'data.tspRoute[' + index + '].latitude');
+        }
+        if(has(self, 'data.tspRoute[' + index +'].longitude')){
+          newWaypoint.location.lng = get(self, 'data.tspRoute[' + index + '].longitude');
+        }
+  
+        tspWaypoints.push(newWaypoint);  
+      }
+    }
+
 
     // we know that the vertical canvas with locations will be displayed regardless of whether
     // we load the background map; so lets create a variable to set it up
@@ -492,12 +515,12 @@ export class LocationsPage extends React.Component {
           onGoogleApiLoaded={function({map, maps}){
             console.log('onGoogleApiLoaded', map);
 
-            for (var index = 0; index < 8; index++) {
+            {/* for (var index = 0; index < 8; index++) {
               tspWaypoints.push({
                 location: new maps.LatLng(self.data.tspRoute[index].latitude, self.data.tspRoute[index].longitude),
                 stopover: true
               });
-            }
+            } */}
             console.log('tspWaypoints', tspWaypoints)
 
   
@@ -552,23 +575,25 @@ export class LocationsPage extends React.Component {
             directionsDisplay = new maps.DirectionsRenderer({map: map});
             directionsDisplay.setMap(map);
 
-            var request = {
-              origin: 'Logan Square, Chicago, IL',
-              destination: 'Logan Square, Chicago, IL',
-              waypoints: tspWaypoints,
-              provideRouteAlternatives: false,
-              travelMode: 'DRIVING',
-              unitSystem: maps.UnitSystem.IMPERIAL
-            }
-
-            console.log('directionsService', directionsService);
-            console.log('directionsDisplay', directionsDisplay);
-
-            directionsService.route(request, function(result, status) {
-              if (status == 'OK') {
-                directionsDisplay.setDirections(result);
+            if(tspWaypoints.length > 0){
+              var request = {
+                origin: 'Logan Square, Chicago, IL',
+                destination: 'Logan Square, Chicago, IL',
+                waypoints: tspWaypoints,
+                provideRouteAlternatives: false,
+                travelMode: 'DRIVING',
+                unitSystem: maps.UnitSystem.IMPERIAL
               }
-            });
+
+              console.log('directionsService', directionsService);
+              console.log('directionsDisplay', directionsDisplay);
+
+              directionsService.route(request, function(result, status) {
+                if (status == 'OK') {
+                  directionsDisplay.setDirections(result);
+                }
+              });
+            }
 
 
             

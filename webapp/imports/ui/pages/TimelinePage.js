@@ -19,7 +19,7 @@ export class TimelinePage extends React.Component {
 
   getMeteorData() {
     let data = {
-      ccd: null,
+      ccd: {},
       timelineEntries: []
     }
 
