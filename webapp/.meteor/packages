@@ -90,8 +90,6 @@ clinical:hl7-resource-risk-assessment
 clinical:landing-page
 #clinical:routing-algorithms
 
-awatson1978:awatson1978-medical-history
-
 # oauth server
 # clinical:fhir-vault-client
 # clinical:fhir-vault-server
