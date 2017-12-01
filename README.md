@@ -97,7 +97,7 @@ scripts/remove_restricted_media_assets.sh
 #### E. Deploy to Production  
 
 ```sh
-TIMEOUT_SCALE_FACTOR=10 DEPLOY_HOSTNAME=galaxy.meteor.com meteor deploy my-org-exchange.meteorapp.com --settings configs/settings.dev.json
+TIMEOUT_SCALE_FACTOR=10 DEPLOY_HOSTNAME=us-east-1.galaxy-deploy.meteor.com MONGO_URL=mongodb://<dbuser>:<dbpassword>@ds019638.mlab.com:19638/clinical-meteor meteor deploy --settings settings.json meteor-on-fhir.meteorapp.com
 ```   
 
 #### F. Mobile Build   
