@@ -16,6 +16,8 @@ import { Bert } from 'meteor/themeteorchef:bert';
 import RaisedButton from 'material-ui/RaisedButton';
 import { lightBaseTheme, darkBaseTheme } from 'material-ui/styles';
 
+import { has, get } from 'lodash';
+
 if(process.env.NODE_ENV === "test") console.log("Signup[lightBaseTheme]", lightBaseTheme);
 if(process.env.NODE_ENV === "test") console.log("Signup[darkBaseTheme]", darkBaseTheme);
 
@@ -28,37 +30,38 @@ export class Signup extends React.Component {
     let data = {
       style: {
         textColor: {
-          color: darkBaseTheme.palette.textColor
+          color: lightBaseTheme.palette.textColor
         },
         inputStyle: {
-          color: darkBaseTheme.palette.textColor
+          color: lightBaseTheme.palette.textColor
         },
         errorStyle: {
-          color: darkBaseTheme.palette.accent1Color
+          color: lightBaseTheme.palette.accent1Color
         },
         hintStyle: {
-          color: darkBaseTheme.palette.secondaryTextColor
+          color: lightBaseTheme.palette.secondaryTextColor
         },
         underlineStyle: {
-          borderColor: darkBaseTheme.palette.secondaryTextColor
+          borderColor: lightBaseTheme.palette.textColor
         },
         floatingLabelStyle: {
-          color: darkBaseTheme.palette.secondaryTextColor
+          color: lightBaseTheme.palette.secondaryTextColor
         },
         floatingLabelFocusStyle: {
-          color: darkBaseTheme.palette.secondaryTextColor
+          color: lightBaseTheme.palette.secondaryTextColor
         }
       }
     };
 
-    if (Meteor.settings && Meteor.settings.theme && Meteor.settings.theme.darkroomTextEnabled ) {
-      data.style.textColor.color = lightBaseTheme.palette.textColor;
-      data.style.inputStyle.color = lightBaseTheme.palette.textColor;
-      data.style.errorStyle.color = lightBaseTheme.palette.accent1Color;
-      data.style.hintStyle.color = lightBaseTheme.palette.secondaryTextColor;
-      data.style.underlineStyle.color = lightBaseTheme.palette.secondaryTextColor;
-      data.style.floatingLabelStyle.color = lightBaseTheme.palette.secondaryTextColor;
-      data.style.floatingLabelFocusStyle.color = lightBaseTheme.palette.secondaryTextColor;
+    if(get(Meteor, 'settings.theme.darkroomTextEnabled')){
+    // if (Meteor.settings && Meteor.settings.theme && Meteor.settings.theme.darkroomTextEnabled ) {
+      data.style.textColor.color = darkBaseTheme.palette.textColor;
+      data.style.inputStyle.color = darkBaseTheme.palette.textColor;
+      data.style.errorStyle.color = darkBaseTheme.palette.accent1Color;
+      data.style.hintStyle.color = darkBaseTheme.palette.secondaryTextColor;
+      data.style.underlineStyle.color = darkBaseTheme.palette.textColor;
+      data.style.floatingLabelStyle.color = darkBaseTheme.palette.secondaryTextColor;
+      data.style.floatingLabelFocusStyle.color = darkBaseTheme.palette.secondaryTextColor;
     }
     if(process.env.NODE_ENV === "test") console.log("Signup[data]", data);
 
