@@ -55,6 +55,7 @@
     "d3-scale": "^1.0.5",
     "faker": "^4.1.0",
     "fhir": "^3.1.0",
+    "fhir-schemas": "0.1.39",
     "geolib": "^2.0.24",
     "google-map-react": "^0.25.0",
     "google-maps": "^3.2.1",
@@ -66,6 +67,7 @@
     "meteor-desktop": "^0.11.1",
     "meteor-node-stubs": "~0.2.0",
     "moment": "^2.18.1",
+    "mongodb": "^3.0.1",
     "node-geocoder": "^3.21.1",
     "normalize.css": "^7.0.0",
     "object-path": "^0.11.4",
@@ -106,6 +108,7 @@
     "react-toolbox": "^2.0.0-beta.12",
     "react-visjs-timeline": "1.4.0-beta-1",
     "scrollto-element": "^1.0.4",
+    "simple-schema": "^1.1.0",
     "vis": "^4.20.1",
     "xml2js": "^0.4.19"
   }
