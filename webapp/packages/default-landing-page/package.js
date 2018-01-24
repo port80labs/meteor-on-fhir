@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'clinical:plugin-default-landing-page',
+  name: 'clinical:default-landing-page',
   version: '0.0.1',
   // Brief, one-line summary of the package.
   summary: '',
