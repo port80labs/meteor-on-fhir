@@ -99,8 +99,17 @@ export class Footer extends React.Component {
   queryBigchain(){
     console.log("queryBigchain");
 
-    Meteor.call('searchBigchainMetadata', function(error, data){
-      console.log(data)
+    Meteor.call('searchBigchainForPractitioners', function(error, data){
+      if(error) console.log('error', error);
+      // console.log(data)
+
+      var parsedResults = [];
+
+      data.forEach(function(result){
+        parsedResults.push(result.data);
+      });
+      
+      Session.set('practitionerBlockchainData', parsedResults);
     });
   }
   openLink(url){

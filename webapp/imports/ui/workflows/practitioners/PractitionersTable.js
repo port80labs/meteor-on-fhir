@@ -28,52 +28,16 @@ export default class PractitionersTable extends React.Component {
       options.limit = Meteor.settings.public.defaults.paginationLimit;
     }
 
-    data.practitioners = Practitioners.find(query, options).map(function(practitioner){
-      let result = {
-        _id: practitioner._id,
-        name: '',
-        telecomValue: '',
-        telecomUse: '',
-        qualificationId: '',
-        qualificationStart: '',
-        qualificationEnd: '',
-        issuer: ''
-      };
-
-      // fhir-1.6.0
-      if (practitioner.name && practitioner.name[0]) {
-        if(practitioner.name[0].text){
-          result.name = practitioner.name[0].text;
-        } else {
-          result.name = practitioner.name[0].given[0] + ' ' + practitioner.name[0].family[0];
-        } 
-      } else {
-      // fhir-1.0.2
-        result.name = practitioner.name.text;        
-      }
-
-      if (practitioner.telecom && practitioner.telecom[0] && practitioner.telecom[0].value ) {
-        result.telecomValue = practitioner.telecom[0].value;
-      }
-      if (practitioner.telecom && practitioner.telecom[0] && practitioner.telecom[0].use ) {
-        result.telecomUse = practitioner.telecom[0].use;
-      }
-
-      if (practitioner.qualification && practitioner.qualification[0] && practitioner.qualification[0].identifier && practitioner.qualification[0].identifier[0] && practitioner.qualification[0].identifier[0].value ) {
-        result.qualificationId = practitioner.qualification[0].identifier[0].value;
-      }
-      if (practitioner.qualification && practitioner.qualification[0] && practitioner.qualification[0].identifier && practitioner.qualification[0].identifier[0] && practitioner.qualification[0].identifier[0].period && practitioner.qualification[0].identifier[0].period.start ) {
-        result.qualificationStart = moment(practitioner.qualification[0].identifier[0].period.start).format("MMM YYYY");
-      }
-      if (practitioner.qualification && practitioner.qualification[0] && practitioner.qualification[0].identifier && practitioner.qualification[0].identifier[0] && practitioner.qualification[0].identifier[0].period && practitioner.qualification[0].identifier[0].period.end) {
-        result.qualificationEnd = moment(practitioner.qualification[0].identifier[0].period.end).format("MMM YYYY");
-      }
-      if (practitioner.qualification && practitioner.qualification[0] && practitioner.qualification[0].issuer && practitioner.qualification[0].issuer.display ) {
-        result.issuer = practitioner.qualification[0].issuer.display;
-      }
-
-      return result;
-    });
+    if(this.props.data){
+      this.props.data.forEach(function(practitioner){
+        data.practitioners.push(prepPractitionerForTable(practitioner));
+      });
+    } else {
+      data.practitioners = Practitioners.find(query, options).map(function(practitioner){
+        
+        return prepPractitionerForTable(practitioner);
+      });  
+    }
 
     console.log("PractitionersTable[data]", data);
     return data;
@@ -125,3 +89,49 @@ export default class PractitionersTable extends React.Component {
 }
 
 ReactMixin(PractitionersTable.prototype, ReactMeteorData);
+
+function prepPractitionerForTable (practitioner){
+  let result = {
+    _id: practitioner._id,
+    name: '',
+    telecomValue: '',
+    telecomUse: '',
+    qualificationId: '',
+    qualificationStart: '',
+    qualificationEnd: '',
+    issuer: ''
+  };
+
+  // fhir-1.6.0
+  if (practitioner.name && practitioner.name[0]) {
+    if(practitioner.name[0].text){
+      result.name = practitioner.name[0].text;
+    } else {
+      result.name = practitioner.name[0].given[0] + ' ' + practitioner.name[0].family[0];
+    } 
+  } else {
+  // fhir-1.0.2
+    result.name = practitioner.name.text;        
+  }
+
+  if (practitioner.telecom && practitioner.telecom[0] && practitioner.telecom[0].value ) {
+    result.telecomValue = practitioner.telecom[0].value;
+  }
+  if (practitioner.telecom && practitioner.telecom[0] && practitioner.telecom[0].use ) {
+    result.telecomUse = practitioner.telecom[0].use;
+  }
+
+  if (practitioner.qualification && practitioner.qualification[0] && practitioner.qualification[0].identifier && practitioner.qualification[0].identifier[0] && practitioner.qualification[0].identifier[0].value ) {
+    result.qualificationId = practitioner.qualification[0].identifier[0].value;
+  }
+  if (practitioner.qualification && practitioner.qualification[0] && practitioner.qualification[0].identifier && practitioner.qualification[0].identifier[0] && practitioner.qualification[0].identifier[0].period && practitioner.qualification[0].identifier[0].period.start ) {
+    result.qualificationStart = moment(practitioner.qualification[0].identifier[0].period.start).format("MMM YYYY");
+  }
+  if (practitioner.qualification && practitioner.qualification[0] && practitioner.qualification[0].identifier && practitioner.qualification[0].identifier[0] && practitioner.qualification[0].identifier[0].period && practitioner.qualification[0].identifier[0].period.end) {
+    result.qualificationEnd = moment(practitioner.qualification[0].identifier[0].period.end).format("MMM YYYY");
+  }
+  if (practitioner.qualification && practitioner.qualification[0] && practitioner.qualification[0].issuer && practitioner.qualification[0].issuer.display ) {
+    result.issuer = practitioner.qualification[0].issuer.display;
+  }
+  return result;
+}

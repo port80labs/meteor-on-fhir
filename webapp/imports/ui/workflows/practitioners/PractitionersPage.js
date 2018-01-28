@@ -13,6 +13,7 @@ import { VerticalCanvas } from '/imports/ui/components/VerticalCanvas';
 Session.setDefault('practitionerPageTabIndex', 1);
 Session.setDefault('practitionerSearchFilter', '');
 Session.setDefault('selectedPractitioner', false);
+Session.setDefault('practitionerBlockchainData', false);
 
 export class PractitionersPage extends React.Component {
   getMeteorData() {
@@ -32,6 +33,13 @@ export class PractitionersPage extends React.Component {
     data.style = Glass.blur(data.style);
     data.style.appbar = Glass.darkroom(data.style.appbar);
     data.style.tab = Glass.darkroom(data.style.tab);
+
+    data.blockchainData = [];
+
+    if(Session.get('practitionerBlockchainData')){
+      console.log('practitionerBlockchainData', Session.get('practitionerBlockchainData'));
+      data.blockchainData = Session.get('practitionerBlockchainData');
+    };
 
     if(process.env.NODE_ENV === "test") console.log("PractitionersPage[data]", data);
     return data;
@@ -66,7 +74,10 @@ export class PractitionersPage extends React.Component {
                 <Tab className="practitionerListTab" label='Practitioners' onActive={this.handleActive} style={this.data.style.tab} value={1}>
                   <PractitionersTable showBarcodes={false} />
                  </Tab>
-                 <Tab className="practitionerDetailsTab" label='Detail' onActive={this.handleActive} style={this.data.style.tab} value={2}>
+                 <Tab className="practitionerBlockchainHisotryTab" label='Blockchain' onActive={this.handleActive} style={this.data.style.tab} value={2}>
+                  <PractitionersTable showBarcodes={false} data={ this.data.blockchainData } />
+                 </Tab>
+                 <Tab className="practitionerDetailsTab" label='Detail' onActive={this.handleActive} style={this.data.style.tab} value={3}>
                   <PractitionerDetail id='practitionerDetails' />
                 </Tab>
               </Tabs>
