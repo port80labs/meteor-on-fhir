@@ -96,10 +96,10 @@ export class Footer extends React.Component {
       }
     });
   }
-  queryBigchain(){
-    console.log("queryBigchain");
+  queryBigchain(text){
+    console.log("queryBigchain", text);
 
-    Meteor.call('searchBigchainForPractitioners', function(error, data){
+    Meteor.call('searchBigchainForPractitioners', text, function(error, data){
       if(error) console.log('error', error);
       // console.log(data)
 
@@ -164,7 +164,8 @@ export class Footer extends React.Component {
         if(Package["symptomatic:blockchain-core"]){          
           return (
             <div>
-              <FlatButton label='Query Practitioners on Bigchain' className='querySystemButton' ref='querySystemButton' onClick={this.queryBigchain.bind(this)} style={this.data.style.buttonText} ></FlatButton>
+              <FlatButton label='Query Practitioners on Bigchain' className='querySystemButton' ref='querySystemButton' onClick={this.queryBigchain.bind(this, '')} style={this.data.style.buttonText} ></FlatButton>
+              <FlatButton label='Query Lisa Cuddy' className='querySystemButton' ref='querySystemButton' onClick={this.queryBigchain.bind(this, 'Lisa Cuddy')} style={this.data.style.buttonText} ></FlatButton>
             </div>
           );
         }
