@@ -18,6 +18,8 @@ import {
 } from 'material-ui/Table';
 import { get, has } from 'lodash';
 
+import ObservationsTable from 'meteor/clinical:hl7-resource-observation';
+
 import AllergyIntolerancesTable from '/imports/ui/workflows/allergyIntolerances/AllergyIntolerancesTable';
 import Avatar from 'material-ui/Avatar';
 import ConditionsTable from '/imports/ui/workflows/conditions/ConditionsTable';
@@ -31,7 +33,7 @@ import ImmunizationsTable from '/imports/ui/workflows/immunizations/Immunization
 import ImagingStudiesTable from '/imports/ui/workflows/imaging-studies/ImagingStudiesTable';
 import MedicationStatementsTable from '/imports/ui/workflows/medicationStatements/MedicationStatementsTable';
 import ProceduresTable from '/imports/ui/workflows/procedures/ProceduresTable';
-import ObservationsTable from '/imports/ui/workflows/observations/ObservationsTable';
+// import ObservationsTable from '/imports/ui/workflows/observations/ObservationsTable';
 import React from 'react';
 import { ReactMeteorData } from 'meteor/react-meteor-data';
 import ReactMixin from 'react-mixin';
@@ -227,6 +229,7 @@ export class ContinuityOfCarePage extends React.Component {
                     <ObservationsTable
                       data={ this.data.ccd.observations } 
                       displayDates={true} 
+                      displayBarcode={false}
                     />
                     
                   </CardText>

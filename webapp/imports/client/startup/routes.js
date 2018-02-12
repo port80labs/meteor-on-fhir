@@ -58,8 +58,8 @@ import { NeedToBeSysadmin } from '/imports/ui/pages/NeedToBeSysadmin';
 import { NotFound } from '/imports/ui/pages/NotFound';
 import { NotificationsPage } from '/imports/ui/pages/NotificationsPage';
 // // import { OAuthScrapYardPage } from '/imports/ui/workflows/oauth/OAuthScrapYardPage';
-import { ObservationsPage } from '/imports/ui/workflows/observations/ObservationsPage';
-import { OrganizationsPage } from '/imports/ui/workflows/organizations/OrganizationsPage';
+// import { ObservationsPage } from '/imports/ui/workflows/observations/ObservationsPage';
+// import { OrganizationsPage } from '/imports/ui/workflows/organizations/OrganizationsPage';
 import { OutboundHeaderPage } from '/imports/ui/pages/OutboundHeaderPage';
 // import { PatientsPage } from '/imports/ui/workflows/patients/PatientsPage';
 import { PractitionerDashboard } from '/imports/ui/pages/PractitionerDashboard';
@@ -70,7 +70,7 @@ import { QuestionnaireResponsesPage } from '/imports/ui/workflows/questionnaires
 import { QuestionnairesPage } from '/imports/ui/workflows/questionnaires/QuestionnairesPage';
 import { RecoverPassword } from '/imports/ui/pages/RecoverPassword';
 import { ResetPassword } from '/imports/ui/pages/ResetPassword';
-import { RiskAssessmentsPage } from '/imports/ui/workflows/risk-assessments/RiskAssessmentsPage';
+// import { RiskAssessmentsPage } from '/imports/ui/workflows/risk-assessments/RiskAssessmentsPage';
 import { SciFiPage } from '/imports/ui/pages/SciFiPage';
 // // import { ServerConfigurationPage } from '/imports/ui/workflows/oauth/ServerConfigurationPage';
 import { Signin } from '/imports/ui/pages/Signin';
@@ -197,7 +197,7 @@ Meteor.startup(() => {
               <Route name="dataManagement" path="/data-management" component={ DataManagementPage }  onEnter={ requireAuth }/>
               <Route name="dataImport" path="/data-import" component={ DataImportPage }  onEnter={ requireAuth }/>
       
-              <Route name="observation" path="/observations" component={ ObservationsPage }  onEnter={ requireAuth }/>
+              {/* <Route name="observation" path="/observations" component={ ObservationsPage }  onEnter={ requireAuth }/> */}
               {/* <Route name="bodySites" path="/body-sites" component={ BodySitesPage } onEnter={ requireAuth }/> */}
       
               <Route name="medications" path="/medications" component={ MedicationsPage }  onEnter={ requireAuth }/>
@@ -214,7 +214,7 @@ Meteor.startup(() => {
               <Route name="dermatograms" path="/dermatograms" component={ DermatogramsPage }  onEnter={ requireAuth }/>
               <Route name="questionnaires" path="/questionnaires" component={ QuestionnairesPage }  onEnter={ requireAuth }/>
               <Route name="questionnaireResponses" path="/questionnaire-responses" component={ QuestionnaireResponsesPage }  onEnter={ requireAuth }/> */}
-              <Route name="riskAssessments" path="/risk-assessments" component={ RiskAssessmentsPage }  onEnter={ requireAuth } />
+              {/* <Route name="riskAssessments" path="/risk-assessments" component={ RiskAssessmentsPage }  onEnter={ requireAuth } /> */}
       
               <Route name="notifications" path="/notifications" component={ NotificationsPage }  onEnter={ requireAuth }/>
       
@@ -227,7 +227,7 @@ Meteor.startup(() => {
               {/* <Route name="mathPage" path="/math" component={ MathPage } />
               <Route name="decisionTree" path="/decision-tree" component={ DecisionTree } /> */}
       
-              <Route name="organizationsPage" path="/organizations" component={ OrganizationsPage } />
+              {/* <Route name="organizationsPage" path="/organizations" component={ OrganizationsPage } /> */}
       
               {/* <Route name="oAuthScrapYardPage" path="/oauth-ui" component={ OAuthScrapYardPage } />
               <Route name="authorizePage" path="/oauth" component={ AuthorizePage } />      

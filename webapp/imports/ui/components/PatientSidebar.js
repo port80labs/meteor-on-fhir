@@ -141,12 +141,18 @@ export class PatientSidebar extends React.Component {
         <ListItem primaryText='Locations' href='/locations' />
       </IndexLinkContainer>;
     }
-    if(get(Meteor, 'settings.public.modules.fhir.Organizations')){
-      fhirSectionEnabled = true;
-      careplans = <IndexLinkContainer to='/organizations'>
-        <ListItem primaryText='Organizations' href='/organizations' />
-      </IndexLinkContainer>;
-    }
+    // if(get(Meteor, 'settings.public.modules.fhir.Observations')){
+    //   fhirSectionEnabled = true;
+    //   careplans = <IndexLinkContainer to='/observations'>
+    //     <ListItem primaryText='Observations' href='/observations' />
+    //   </IndexLinkContainer>;
+    // }
+    // if(get(Meteor, 'settings.public.modules.fhir.Organizations')){
+    //   fhirSectionEnabled = true;
+    //   careplans = <IndexLinkContainer to='/organizations'>
+    //     <ListItem primaryText='Organizations' href='/organizations' />
+    //   </IndexLinkContainer>;
+    // }
     if(get(Meteor, 'settings.public.modules.fhir.Medications')){
       fhirSectionEnabled = true;
       careplans = <IndexLinkContainer to='/medications'>
@@ -165,24 +171,24 @@ export class PatientSidebar extends React.Component {
         <ListItem primaryText='Medication Statements' href='/medication-statements' />
       </IndexLinkContainer>;
     }
-    if(get(Meteor, 'settings.public.modules.fhir.Observations')){
-      fhirSectionEnabled = true;
-      careplans = <IndexLinkContainer to='/observations'>
-        <ListItem primaryText='Observations' href='/observations' />
-      </IndexLinkContainer>;
-    }
+    // if(get(Meteor, 'settings.public.modules.fhir.Observations')){
+    //   fhirSectionEnabled = true;
+    //   careplans = <IndexLinkContainer to='/observations'>
+    //     <ListItem primaryText='Observations' href='/observations' />
+    //   </IndexLinkContainer>;
+    // }
     if(get(Meteor, 'settings.public.modules.fhir.Procedures')){
       fhirSectionEnabled = true;
       careplans = <IndexLinkContainer to='/procedures'>
         <ListItem primaryText='Procedures' href='/procedures' />
       </IndexLinkContainer>;
     }
-    if(get(Meteor, 'settings.public.modules.fhir.RiskAssessments')){
-      fhirSectionEnabled = true;
-      careplans = <IndexLinkContainer to='/risk-assessments'>
-        <ListItem primaryText='Risk Assessments' href='/risk-assessments' />
-      </IndexLinkContainer>;
-    }
+    // if(get(Meteor, 'settings.public.modules.fhir.RiskAssessments')){
+    //   fhirSectionEnabled = true;
+    //   careplans = <IndexLinkContainer to='/risk-assessments'>
+    //     <ListItem primaryText='Risk Assessments' href='/risk-assessments' />
+    //   </IndexLinkContainer>;
+    // }
 
     if(fhirSectionEnabled){
       fhirSection = <hr />;
@@ -235,10 +241,7 @@ export class PatientSidebar extends React.Component {
           { medications }
           { medicationOrders }
           { medicationStatements }
-          { observations }
-          { organizations }
           { procedures }
-          { riskAssessments }
 
           <hr />
 
