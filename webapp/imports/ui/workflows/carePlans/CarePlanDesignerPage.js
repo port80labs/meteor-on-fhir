@@ -7,7 +7,7 @@ import FlatButton from 'material-ui/FlatButton';
 import { GlassCard } from '/imports/ui/components/GlassCard';
 import GoalsTable from '/imports/ui/workflows/carePlans/GoalsTable';
 import MedicationTable from '/imports/ui/workflows/medications/MedicationTable';
-import PatientTable from '/imports/ui/workflows/patients/PatientTable';
+import { PatientTable } from 'meteor/clinical:hl7-resource-patient'
 import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
 import { ReactMeteorData } from 'meteor/react-meteor-data';

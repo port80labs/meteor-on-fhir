@@ -1,14 +1,14 @@
 import { CardText, CardTitle } from 'material-ui/Card';
 import {Tab, Tabs} from 'material-ui/Tabs';
+import { GlassCard, VerticalCanvas, Glass } from 'meteor/clinical:glass-ui';
 
-import { GlassCard } from '/imports/ui/components/GlassCard';
 import MedicationStatementDetail from '/imports/ui/workflows/medicationStatements/MedicationStatementDetail';
 import MedicationStatementsTable from '/imports/ui/workflows/medicationStatements/MedicationStatementsTable';
 import { Meteor } from 'meteor/meteor';
+import { Session } from 'meteor/session';
 import React  from 'react';
 import { ReactMeteorData } from 'meteor/react-meteor-data';
 import ReactMixin  from 'react-mixin';
-import { VerticalCanvas } from '/imports/ui/components/VerticalCanvas';
 
 export class MedicationStatementsPage extends React.Component {
   getMeteorData() {

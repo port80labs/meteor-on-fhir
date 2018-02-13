@@ -1,14 +1,12 @@
 import { CardText, CardTitle } from 'material-ui/Card';
 import { Tab, Tabs } from 'material-ui/Tabs';
+import { GlassCard, VerticalCanvas, Glass } from 'meteor/clinical:glass-ui';
 
-import Glass from '/imports/ui/Glass';
-import { GlassCard } from '/imports/ui/components/GlassCard';
 import PractitionerDetail  from '/imports/ui/workflows/practitioners/PractitionerDetail';
 import PractitionersTable  from '/imports/ui/workflows/practitioners/PractitionersTable';
 import React  from 'react';
 import { ReactMeteorData } from 'meteor/react-meteor-data';
 import ReactMixin  from 'react-mixin';
-import { VerticalCanvas } from '/imports/ui/components/VerticalCanvas';
 
 Session.setDefault('practitionerPageTabIndex', 1);
 Session.setDefault('practitionerSearchFilter', '');

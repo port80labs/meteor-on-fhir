@@ -93,81 +93,81 @@ export class PatientSidebar extends React.Component {
     var fhirSection;
     var fhirSectionEnabled;
 
-    if(get(Meteor, 'settings.public.modules.fhir.AllergyIntolerances')){
-      fhirSectionEnabled = true;
-      allergies = <IndexLinkContainer to='/allergies'>
-        <ListItem primaryText='Allergy Intolerances' href='/allergies' />
-      </IndexLinkContainer>;
-    }
-    if(get(Meteor, 'settings.public.modules.fhir.CarePlans')){
-      fhirSectionEnabled = true;
-      careplans = <IndexLinkContainer to='/care-plans'>
-        <ListItem primaryText='Care Plans' href='/care-plans' />
-      </IndexLinkContainer>;
-    }
-    if(get(Meteor, 'settings.public.modules.fhir.Conditions')){
-      fhirSectionEnabled = true;
-      careplans = <IndexLinkContainer to='/conditions'>
-        <ListItem primaryText='Conditions' href='/conditions' />
-      </IndexLinkContainer>;
-    }
+    // if(get(Meteor, 'settings.public.modules.fhir.AllergyIntolerances')){
+    //   fhirSectionEnabled = true;
+    //   allergies = <IndexLinkContainer to='/allergies'>
+    //     <ListItem primaryText='Allergy Intolerances' href='/allergies' />
+    //   </IndexLinkContainer>;
+    // }
+    // if(get(Meteor, 'settings.public.modules.fhir.CarePlans')){
+    //   fhirSectionEnabled = true;
+    //   careplans = <IndexLinkContainer to='/care-plans'>
+    //     <ListItem primaryText='Care Plans' href='/care-plans' />
+    //   </IndexLinkContainer>;
+    // }
+    // if(get(Meteor, 'settings.public.modules.fhir.Conditions')){
+    //   fhirSectionEnabled = true;
+    //   conditions = <IndexLinkContainer to='/conditions'>
+    //     <ListItem primaryText='Conditions' href='/conditions' />
+    //   </IndexLinkContainer>;
+    // }
     if(get(Meteor, 'settings.public.modules.fhir.Devices')){
       fhirSectionEnabled = true;
-      careplans = <IndexLinkContainer to='/devices'>
+      devices = <IndexLinkContainer to='/devices'>
         <ListItem primaryText='Devices' href='/devices' />
       </IndexLinkContainer>;
     }
     if(get(Meteor, 'settings.public.modules.fhir.DiagnosticReports')){
       fhirSectionEnabled = true;
-      careplans = <IndexLinkContainer to='/diagnostic-reports'>
+      diagnosticReports = <IndexLinkContainer to='/diagnostic-reports'>
         <ListItem primaryText='Diagnostic Reports' href='/diagnostic-reports' />
       </IndexLinkContainer>;
     }
     if(get(Meteor, 'settings.public.modules.fhir.Goals')){
       fhirSectionEnabled = true;
-      careplans = <IndexLinkContainer to='/goals'>
+      goals = <IndexLinkContainer to='/goals'>
         <ListItem primaryText='Goals' href='/goals' />
       </IndexLinkContainer>;
     }
     if(get(Meteor, 'settings.public.modules.fhir.Immunizations')){
       fhirSectionEnabled = true;
-      careplans = <IndexLinkContainer to='/immunizations'>
+      immunizations = <IndexLinkContainer to='/immunizations'>
         <ListItem primaryText='Imunizations' href='/immunizations' />
       </IndexLinkContainer>;
     }
     if(get(Meteor, 'settings.public.modules.fhir.Locations')){
       fhirSectionEnabled = true;
-      careplans = <IndexLinkContainer to='/locations'>
+      locations = <IndexLinkContainer to='/locations'>
         <ListItem primaryText='Locations' href='/locations' />
       </IndexLinkContainer>;
     }
     // if(get(Meteor, 'settings.public.modules.fhir.Observations')){
     //   fhirSectionEnabled = true;
-    //   careplans = <IndexLinkContainer to='/observations'>
+    //   observations = <IndexLinkContainer to='/observations'>
     //     <ListItem primaryText='Observations' href='/observations' />
     //   </IndexLinkContainer>;
     // }
     // if(get(Meteor, 'settings.public.modules.fhir.Organizations')){
     //   fhirSectionEnabled = true;
-    //   careplans = <IndexLinkContainer to='/organizations'>
+    //   organizations = <IndexLinkContainer to='/organizations'>
     //     <ListItem primaryText='Organizations' href='/organizations' />
     //   </IndexLinkContainer>;
     // }
     if(get(Meteor, 'settings.public.modules.fhir.Medications')){
       fhirSectionEnabled = true;
-      careplans = <IndexLinkContainer to='/medications'>
+      medications = <IndexLinkContainer to='/medications'>
         <ListItem primaryText='Medications' href='/medications' />
       </IndexLinkContainer>;
     }
     if(get(Meteor, 'settings.public.modules.fhir.MedicationOrders')){
       fhirSectionEnabled = true;
-      careplans = <IndexLinkContainer to='/medication-orders'>
+      medicationOrders = <IndexLinkContainer to='/medication-orders'>
         <ListItem primaryText='Medication Orders' href='/medication-orders' />
       </IndexLinkContainer>;
     }
     if(get(Meteor, 'settings.public.modules.fhir.MedicationStatements')){
       fhirSectionEnabled = true;
-      careplans = <IndexLinkContainer to='/medication-statements'>
+      medicationStatements = <IndexLinkContainer to='/medication-statements'>
         <ListItem primaryText='Medication Statements' href='/medication-statements' />
       </IndexLinkContainer>;
     }
@@ -179,13 +179,13 @@ export class PatientSidebar extends React.Component {
     // }
     if(get(Meteor, 'settings.public.modules.fhir.Procedures')){
       fhirSectionEnabled = true;
-      careplans = <IndexLinkContainer to='/procedures'>
+      procedures = <IndexLinkContainer to='/procedures'>
         <ListItem primaryText='Procedures' href='/procedures' />
       </IndexLinkContainer>;
     }
     // if(get(Meteor, 'settings.public.modules.fhir.RiskAssessments')){
     //   fhirSectionEnabled = true;
-    //   careplans = <IndexLinkContainer to='/risk-assessments'>
+    //   riskAssessments = <IndexLinkContainer to='/risk-assessments'>
     //     <ListItem primaryText='Risk Assessments' href='/risk-assessments' />
     //   </IndexLinkContainer>;
     // }
@@ -224,6 +224,8 @@ export class PatientSidebar extends React.Component {
           <IndexLinkContainer to='/'>
             <ListItem className="indexItem" href='/' primaryText='Index' />
           </IndexLinkContainer>
+
+          <hr />
 
           { healthlog }              
           { dynamicElements }

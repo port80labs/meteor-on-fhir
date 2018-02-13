@@ -1,22 +1,21 @@
 import { CardText, CardTitle } from 'material-ui/Card';
 import { Col, Grid, Row } from 'react-bootstrap';
 import { Tab, Tabs } from 'material-ui/Tabs';
+import { GlassCard, VerticalCanvas, Glass } from 'meteor/clinical:glass-ui';
 
 import Checkbox from 'material-ui/Checkbox';
 import { EJSON } from 'meteor/ejson';
-import Glass from '/imports/ui/Glass';
-import { GlassCard } from '/imports/ui/components/GlassCard';
 import GoogleMapReact from 'google-map-react';
 import LocationDetail from '/imports/ui/workflows/locations/LocationDetail';
 import LocationTable from '/imports/ui/workflows/locations/LocationsTable';
 import { Meteor } from 'meteor/meteor';
+import { Session } from 'meteor/session';
 import RaisedButton from 'material-ui/RaisedButton';
 import React  from 'react';
 import { ReactMeteorData } from 'meteor/react-meteor-data';
 import ReactMixin  from 'react-mixin';
 import {ScatterplotChart} from 'react-easy-chart';
 import TextField from 'material-ui/TextField';
-import { VerticalCanvas } from '/imports/ui/components/VerticalCanvas';
 import { get, has } from 'lodash';
 
 // if(process.env.NODE_ENV !== 'test'){

@@ -2,9 +2,8 @@ import React  from 'react';
 import ReactMixin  from 'react-mixin';
 import { ReactMeteorData } from 'meteor/react-meteor-data';
 
-import { VerticalCanvas } from '/imports/ui/components/VerticalCanvas';
-import { GlassCard } from '/imports/ui/components/GlassCard';
 import { CardTitle, CardText } from 'material-ui/Card';
+import { GlassCard, VerticalCanvas, Glass } from 'meteor/clinical:glass-ui';
 
 import DeviceDetail from '/imports/ui/workflows/devices/DeviceDetail';
 import DevicesTable from '/imports/ui/workflows/devices/DevicesTable';

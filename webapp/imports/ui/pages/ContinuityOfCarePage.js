@@ -18,11 +18,11 @@ import {
 } from 'material-ui/Table';
 import { get, has } from 'lodash';
 
-import ObservationsTable from 'meteor/clinical:hl7-resource-observation';
+import { ObservationsTable } from 'meteor/clinical:hl7-resource-observation';
+import { AllergyIntolerancesTable } from 'meteor/clinical:hl7-resource-allergy-intolerance';
+import { ConditionsTable } from 'meteor/clinical:hl7-resource-condition';
 
-import AllergyIntolerancesTable from '/imports/ui/workflows/allergyIntolerances/AllergyIntolerancesTable';
 import Avatar from 'material-ui/Avatar';
-import ConditionsTable from '/imports/ui/workflows/conditions/ConditionsTable';
 import CarePlansTable from '/imports/ui/workflows/carePlans/CarePlansTable';
 import DiagnosticReportsTable from '/imports/ui/workflows/diagnosticReports/DiagnosticReportsTable';
 import FlatButton from 'material-ui/FlatButton';

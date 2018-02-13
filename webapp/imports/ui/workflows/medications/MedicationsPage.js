@@ -3,14 +3,14 @@ import ReactMixin  from 'react-mixin';
 import { ReactMeteorData } from 'meteor/react-meteor-data';
 
 import { Tabs, Tab } from 'material-ui/Tabs';
-import { GlassCard } from '/imports/ui/components/GlassCard';
 import { CardTitle, CardText } from 'material-ui/Card';
-import { VerticalCanvas } from '/imports/ui/components/VerticalCanvas';
+import { GlassCard, VerticalCanvas, Glass } from 'meteor/clinical:glass-ui';
 
 import MedicationDetail from '/imports/ui/workflows/medications/MedicationDetail';
 import MedicationTable from '/imports/ui/workflows/medications/MedicationTable';
 import { Meteor } from 'meteor/meteor';
-import Glass from '/imports/ui/Glass';
+import { Session } from 'meteor/session';
+
 
 Session.setDefault('medicationPageTabIndex', 1); Session.setDefault('medicationSearchFilter', ''); Session.setDefault('selectedMedication', false);
 
