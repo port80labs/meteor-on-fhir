@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 import { Footer } from '/imports/ui/layouts/Footer';
 import { GlassApp } from '/imports/ui/layouts/GlassApp';
-import { GlassCard } from '/imports/ui/components/GlassCard';
 import { Header } from '/imports/ui/layouts/Header';
 import { Image } from '/imports/ui/components/Image';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -15,12 +14,17 @@ import ReactMixin  from 'react-mixin';
 import { SciFiPage } from '/imports/ui/pages/SciFiPage';
 import { Session } from 'meteor/session';
 import { SinglePanelLayout } from '/imports/ui/layouts/SinglePanelLayout';
-import { VerticalCanvas } from '/imports/ui/components/VerticalCanvas';
+
+import { VerticalCanvas, GlassCard } from 'meteor/clinical:glass-ui';
+
 // Material UI Theming
 import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import { get } from 'lodash';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import { has } from 'lodash';
+
+import Dialog from 'material-ui/Dialog';
+
+import { get, has } from 'lodash';
 // import { RouteTransition } from 'react-router-transition';
 // import injectTapEventPlugin from 'react-tap-event-plugin';
 
@@ -33,6 +37,8 @@ const muiTheme = getMuiTheme({
 });
 
 Session.setDefault('iFrameLocation', '');
+Session.setDefault('catchDialogOpen', false;)
+
 Meteor.startup(function (){
   if (has(Meteor.settings, 'public.defaults.iFrameUrl')){
     Session.set('iFrameLocation', get(Meteor.settings, 'public.defaults.iFrameUrl'));
@@ -68,9 +74,7 @@ export class App extends React.Component {
         },
         card: {
           position: 'relative',
-          //minHeight: '768px',
           width: '1024px'
-          //height: Session.get('appHeight') - 240 + 'px'
         },
         content: {
           minHeight: '728px',
@@ -78,10 +82,21 @@ export class App extends React.Component {
           height: Session.get('appHeight') - 280 + 'px'
         }
       },
-      browserWindowLocation: 'https://www.ncbi.nlm.nih.gov'
+      browserWindowLocation: 'https://www.ncbi.nlm.nih.gov', 
+      catchDialog: {
+        open: Session.get('catchDialogOpen'),
+        patient: {
+          display: '',
+          reference: ''
+        }
+      },
+      user: Meteor.user()
     };
 
-
+    if(get(Meteor.user(), 'profile.youHaveMail')){
+      data.catchDialog.open = true;
+    }
+    
 
     if (Session.get('iFrameLocation')) {
       data.browserWindowLocation = Session.get('iFrameLocation');
@@ -103,6 +118,9 @@ export class App extends React.Component {
     if(process.env.NODE_ENV === "test") console.log("App[data]", data);
     return data;
   }
+  handleCloseCatch(){
+    Session.set('catchDialogOpen', false);
+  }  
 
   renderSecondaryPanel(){
     // RADIOLOGY
@@ -149,6 +167,20 @@ export class App extends React.Component {
     if(Meteor.settings && Meteor.settings.public && Meteor.settings.public.defaults && Meteor.settings.public.defaults.nfcOrbital){
       orbital = <SciFiPage />;
     }
+    const catchActions = [
+      <FlatButton
+        label="Accept"
+        primary={true}
+        keyboardFocused={true}
+        onTouchTap={this.handleClosePatients}
+      />,
+      <FlatButton
+        label="Dismiss"
+        primary={true}
+        onTouchTap={this.handleClosePatients}
+      />
+    ];
+
 
     return (
      <MuiThemeProvider muiTheme={muiTheme}>
@@ -175,8 +207,23 @@ export class App extends React.Component {
                 { this.renderSecondaryPanel() }
               </VerticalCanvas>
             </div>
+            <Dialog
+              title="Catch!"
+              actions={catchActions}
+              modal={true}
+              open={this.data.catchDialog.open}
+              onRequestClose={this.handleCloseCatch}
+            >
+              <GlassCard>
+                <CardHeader title="Incoming Patient Chart" />
+                <CardText>
+                  Patient Chart
+                </CardText>
+              </GlassCard>
+            </Dialog>
           <Footer />
         </SinglePanelLayout>
+
       </GlassApp>
      </MuiThemeProvider>
     );

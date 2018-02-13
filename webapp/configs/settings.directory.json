@@ -71,7 +71,7 @@
         "ChecklistManifesto": true,
         "ContinuityOfCare": true,
         "Videoconferencing": true,
-        "ZygoteAvatar": true 
+        "ZygoteAvatar": false 
       },
       "fhir": {
         "AllergyIntolerances": true,
