@@ -153,24 +153,24 @@ export class PatientSidebar extends React.Component {
     //     <ListItem primaryText='Organizations' href='/organizations' />
     //   </IndexLinkContainer>;
     // }
-    if(get(Meteor, 'settings.public.modules.fhir.Medications')){
-      fhirSectionEnabled = true;
-      medications = <IndexLinkContainer to='/medications'>
-        <ListItem primaryText='Medications' href='/medications' />
-      </IndexLinkContainer>;
-    }
-    if(get(Meteor, 'settings.public.modules.fhir.MedicationOrders')){
-      fhirSectionEnabled = true;
-      medicationOrders = <IndexLinkContainer to='/medication-orders'>
-        <ListItem primaryText='Medication Orders' href='/medication-orders' />
-      </IndexLinkContainer>;
-    }
-    if(get(Meteor, 'settings.public.modules.fhir.MedicationStatements')){
-      fhirSectionEnabled = true;
-      medicationStatements = <IndexLinkContainer to='/medication-statements'>
-        <ListItem primaryText='Medication Statements' href='/medication-statements' />
-      </IndexLinkContainer>;
-    }
+    // if(get(Meteor, 'settings.public.modules.fhir.Medications')){
+    //   fhirSectionEnabled = true;
+    //   medications = <IndexLinkContainer to='/medications'>
+    //     <ListItem primaryText='Medications' href='/medications' />
+    //   </IndexLinkContainer>;
+    // }
+    // if(get(Meteor, 'settings.public.modules.fhir.MedicationOrders')){
+    //   fhirSectionEnabled = true;
+    //   medicationOrders = <IndexLinkContainer to='/medication-orders'>
+    //     <ListItem primaryText='Medication Orders' href='/medication-orders' />
+    //   </IndexLinkContainer>;
+    // }
+    // if(get(Meteor, 'settings.public.modules.fhir.MedicationStatements')){
+    //   fhirSectionEnabled = true;
+    //   medicationStatements = <IndexLinkContainer to='/medication-statements'>
+    //     <ListItem primaryText='Medication Statements' href='/medication-statements' />
+    //   </IndexLinkContainer>;
+    // }
     // if(get(Meteor, 'settings.public.modules.fhir.Observations')){
     //   fhirSectionEnabled = true;
     //   careplans = <IndexLinkContainer to='/observations'>
