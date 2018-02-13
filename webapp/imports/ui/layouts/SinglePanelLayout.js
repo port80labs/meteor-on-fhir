@@ -121,8 +121,7 @@ export class SinglePanelLayout extends React.Component {
       <div id='SinglePanelLayout'>
         <Drawer
           open={this.data.state.drawerActive}
-          //docked={this.data.state.dockedSidebar}
-          docked={true}
+          docked={this.data.state.dockedSidebar}
           onRequestChange={ this.closeOpenedSidebar }
           >
 

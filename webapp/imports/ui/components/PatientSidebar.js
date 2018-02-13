@@ -77,19 +77,12 @@ export class PatientSidebar extends React.Component {
     var dynamicElements = [];
     dynamicModules.map(function(element, index){ 
 
-      // if(!element.hideFromSidebar){
-        // good; can't turn this on/off
+      // the excludes array will hide routes
+      if(!get(Meteor, 'settings.public.defaults.sidebar.hidden', []).includes(element.to)){
         dynamicElements.push(<IndexLinkContainer to={element.to} key={index}>
           <ListItem primaryText={element.primaryText} href={element.href} />
         </IndexLinkContainer>);
-
-        // this is what we're trying to get to
-        if(get(Meteor, 'settings.public.modules.fhir' + element.resourceType )){
-          <IndexLinkContainer to={element.to} >
-            <ListItem primaryText={element.primaryText} href={element.href} />
-          </IndexLinkContainer> 
-        }
-      // }
+      }
     });
 
     console.log('dynamicElements', dynamicElements);
