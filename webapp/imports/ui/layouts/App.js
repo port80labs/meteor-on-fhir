@@ -1,4 +1,5 @@
 // base layout
+import { VerticalCanvas, GlassCard } from 'meteor/clinical:glass-ui';
 import { CardHeader, CardText, CardTitle } from 'material-ui/Card';
 import {teal400, teal600} from 'material-ui/styles/colors';
 import PropTypes from 'prop-types';
@@ -15,7 +16,6 @@ import { SciFiPage } from '/imports/ui/pages/SciFiPage';
 import { Session } from 'meteor/session';
 import { SinglePanelLayout } from '/imports/ui/layouts/SinglePanelLayout';
 
-import { VerticalCanvas, GlassCard } from 'meteor/clinical:glass-ui';
 
 // Material UI Theming
 import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
@@ -208,6 +208,18 @@ export class App extends React.Component {
                 > */}
                   {this.props.children}
                 {/* </RouteTransition> */}
+                <Dialog
+                  title="Catch!"
+                  actions={catchActions}
+                  modal={false}
+                  open={this.data.catchDialog.open}
+                  onRequestClose={this.handleCloseCatch}
+                >
+                    <CardHeader title="Incoming Patient Chart" />
+                    <CardText>
+                      Patient Chart
+                    </CardText>
+                </Dialog>
 
             </div>
             <div className='secondaryFlexPanel' style={this.data.style.secondary}>
@@ -216,20 +228,6 @@ export class App extends React.Component {
               </VerticalCanvas>
             </div>
           <Footer />
-          {/* <Dialog
-            title="Catch!"
-            actions={catchActions}
-            modal={false}
-            open={this.data.catchDialog.open}
-            onRequestClose={this.handleCloseCatch}
-          >
-            <GlassCard>
-              <CardHeader title="Incoming Patient Chart" />
-              <CardText>
-                Patient Chart
-              </CardText>
-            </GlassCard>
-          </Dialog> */}
         </SinglePanelLayout>
 
       </GlassApp>
