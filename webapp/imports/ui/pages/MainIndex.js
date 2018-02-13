@@ -174,6 +174,9 @@ export class MainIndex extends React.Component {
                 <Col sm={3} style={this.data.style.column}>
                   {this.renderContinuityOfCare(this.data.user)}
                 </Col>
+                <Col sm={3} style={this.data.style.column}>
+                  {this.renderZygote(this.data.user)}
+                </Col>
               </Row>
 
 
@@ -701,6 +704,24 @@ export class MainIndex extends React.Component {
               <CardTitle
                 title={<MdList />}
                 subtitle='Checklist Manifesto'
+                titleStyle={this.data.style.title}
+                subtitleStyle={this.data.style.subtitle}
+              />
+            </GlassCard>
+          </div>
+        );
+      }
+    }
+  }
+  renderZygote(user){
+    if (get(Meteor, 'settings.public.modules.apps.ZygoteAvatar')) {
+      if (user.isPatient || user.isPractitioner || user.isAdmin) {
+        return (
+          <div id='zygoteAvatarTile' style={this.data.style.indexCardPadding} onClick={ this.openLink.bind(this, '/zygote') } >
+            <GlassCard style={this.data.style.indexCard} >
+              <CardTitle
+                title={<MdFingerprint />}
+                subtitle='Zygote Avatar'
                 titleStyle={this.data.style.title}
                 subtitleStyle={this.data.style.subtitle}
               />

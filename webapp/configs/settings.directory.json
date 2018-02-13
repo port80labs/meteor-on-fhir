@@ -70,7 +70,8 @@
       "apps": {
         "ChecklistManifesto": true,
         "ContinuityOfCare": true,
-        "Videoconferencing": true        
+        "Videoconferencing": true,
+        "ZygoteAvatar": true 
       },
       "fhir": {
         "AllergyIntolerances": true,

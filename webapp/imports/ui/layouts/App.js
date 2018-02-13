@@ -100,7 +100,7 @@ export class App extends React.Component {
       data.style.secondary.left = '4048px';
     }
 
-    if(process.env.NODE_ENV === "test") console.log("GenomePage[data]", data);
+    if(process.env.NODE_ENV === "test") console.log("App[data]", data);
     return data;
   }
 

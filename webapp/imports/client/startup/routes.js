@@ -82,6 +82,7 @@ import { TimelinePage } from '/imports/ui/pages/TimelinePage';
 import { UsersPage } from '/imports/ui/pages/UsersPage';
 import { VerticalCanvas } from '/imports/ui/components/VerticalCanvas';
 import { WelcomePatientPage } from '/imports/ui/pages/WelcomePatientPage';
+import { ZygotePage } from '/imports/ui/pages/ZygotePage';
 
 
 
@@ -252,6 +253,7 @@ Meteor.startup(() => {
 
 
               <Route name="TimelinePage" path="/timeline" component={ TimelinePage }  onEnter={ requireAuth }/>
+              <Route name="ZygotePage" path="/zygote" component={ ZygotePage }  onEnter={ requireAuth }/>
               
               { dynamicRoutes.map(route => <Route name={route.name} path={route.path} component={ route.component } />) }
                     
