@@ -1,4 +1,5 @@
 import '/imports/server';
+import '/imports/api/users/methods';
 
 import { get, has } from 'lodash';
 

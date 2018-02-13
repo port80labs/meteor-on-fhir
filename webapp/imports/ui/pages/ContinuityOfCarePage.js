@@ -24,9 +24,9 @@ import { AllergyIntolerancesTable } from 'meteor/clinical:hl7-resource-allergy-i
 import { ConditionsTable } from 'meteor/clinical:hl7-resource-condition';
 import { ImmunizationsTable } from 'meteor/clinical:hl7-resource-immunization';
 import { CarePlansTable } from 'meteor/clinical:hl7-resource-careplan';
+import { MedicationStatementsTable } from 'meteor/clinical:hl7-resource-medication-statement';
 
 import DiagnosticReportsTable from '/imports/ui/workflows/diagnosticReports/DiagnosticReportsTable';
-import MedicationStatementsTable from '/imports/ui/workflows/medicationStatements/MedicationStatementsTable';
 import ProceduresTable from '/imports/ui/workflows/procedures/ProceduresTable';
 import ImagingStudiesTable from '/imports/ui/workflows/imaging-studies/ImagingStudiesTable';
 

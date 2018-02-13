@@ -6,7 +6,9 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import { GlassCard } from '/imports/ui/components/GlassCard';
 import GoalsTable from '/imports/ui/workflows/carePlans/GoalsTable';
-import MedicationTable from '/imports/ui/workflows/medications/MedicationTable';
+
+import { MedicationsTable } from 'meteor/clinical:hl7-resource-medication';
+
 import { PatientTable } from 'meteor/clinical:hl7-resource-patient'
 import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
@@ -191,7 +193,7 @@ export class CarePlanDesignerPage extends React.Component {
                 subtitle='Select the medications the patient will receive.'
               />
               <CardText>
-                <MedicationTable />
+                <MedicationsTable />
               </CardText>
             </GlassCard>
           </section>

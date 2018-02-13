@@ -6,8 +6,7 @@ import { GlassCard } from '/imports/ui/components/GlassCard';
 import { VerticalCanvas } from '/imports/ui/components/VerticalCanvas';
 import PropTypes from 'prop-types';
 
-import MedicationDetail from '/imports/ui/workflows/medications/MedicationDetail';
-import MedicationTable from '/imports/ui/workflows/medications/MedicationTable';
+import { MedicationDetail, MedicationsTable } from 'meteor/clinical:hl7-resource-medication';
 
 let defaultState = {
   index: 1,
@@ -90,7 +89,7 @@ export class MedicationsPage extends React.Component {
                 <MedicationDetail />
               </Tab>
               <Tab className="medicationListTab" label='Medications' onActive={this.handleActive} style={{backgroundColor: 'white', color: 'black', borderBottom: '1px solid lightgray'}}>
-                <MedicationTable />
+                <MedicationsTable />
                </Tab>
                <Tab className="medicationDetailsTab" label='Detail' style={{padded: "20px", backgroundColor: 'white', color: 'black', borderBottom: '1px solid lightgray'}}>
                 <MedicationDetail />
