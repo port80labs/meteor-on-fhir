@@ -111,30 +111,30 @@ export class PatientSidebar extends React.Component {
     //     <ListItem primaryText='Conditions' href='/conditions' />
     //   </IndexLinkContainer>;
     // }
-    if(get(Meteor, 'settings.public.modules.fhir.Devices')){
-      fhirSectionEnabled = true;
-      devices = <IndexLinkContainer to='/devices'>
-        <ListItem primaryText='Devices' href='/devices' />
-      </IndexLinkContainer>;
-    }
+    // if(get(Meteor, 'settings.public.modules.fhir.Devices')){
+    //   fhirSectionEnabled = true;
+    //   devices = <IndexLinkContainer to='/devices'>
+    //     <ListItem primaryText='Devices' href='/devices' />
+    //   </IndexLinkContainer>;
+    // }
     if(get(Meteor, 'settings.public.modules.fhir.DiagnosticReports')){
       fhirSectionEnabled = true;
       diagnosticReports = <IndexLinkContainer to='/diagnostic-reports'>
         <ListItem primaryText='Diagnostic Reports' href='/diagnostic-reports' />
       </IndexLinkContainer>;
     }
-    if(get(Meteor, 'settings.public.modules.fhir.Goals')){
-      fhirSectionEnabled = true;
-      goals = <IndexLinkContainer to='/goals'>
-        <ListItem primaryText='Goals' href='/goals' />
-      </IndexLinkContainer>;
-    }
-    if(get(Meteor, 'settings.public.modules.fhir.Immunizations')){
-      fhirSectionEnabled = true;
-      immunizations = <IndexLinkContainer to='/immunizations'>
-        <ListItem primaryText='Imunizations' href='/immunizations' />
-      </IndexLinkContainer>;
-    }
+    // if(get(Meteor, 'settings.public.modules.fhir.Goals')){
+    //   fhirSectionEnabled = true;
+    //   goals = <IndexLinkContainer to='/goals'>
+    //     <ListItem primaryText='Goals' href='/goals' />
+    //   </IndexLinkContainer>;
+    // }
+    // if(get(Meteor, 'settings.public.modules.fhir.Immunizations')){
+    //   fhirSectionEnabled = true;
+    //   immunizations = <IndexLinkContainer to='/immunizations'>
+    //     <ListItem primaryText='Imunizations' href='/immunizations' />
+    //   </IndexLinkContainer>;
+    // }
     if(get(Meteor, 'settings.public.modules.fhir.Locations')){
       fhirSectionEnabled = true;
       locations = <IndexLinkContainer to='/locations'>

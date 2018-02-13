@@ -35,12 +35,12 @@ import DynamicRoutes from '/imports/client/startup/index';
 // import { ForumPage } from '/imports/ui/pages/ForumPage';
 import { GenomePage } from '/imports/ui/workflows/genome/GenomePage';
 import { GlassCard } from '/imports/ui/components/GlassCard';
-import { GoalsPage } from '/imports/ui/workflows/goals/GoalsPage';
+// import { GoalsPage } from '/imports/ui/workflows/goals/GoalsPage';
 import { GoogleMapsPage } from '/imports/ui/pages/experimental/GoogleMapsPage';
 import { Healthlog } from '/imports/ui/pages/Healthlog';
 import { HexGridPage } from '/imports/ui/pages/HexGridPage';
 import { ImagingStudiesPage } from '/imports/ui/workflows/imaging-studies/ImagingStudiesPage';
-import { ImmunizationsPage } from '/imports/ui/workflows/immunizations/ImmunizationsPage';
+// import { ImmunizationsPage } from '/imports/ui/workflows/immunizations/ImmunizationsPage';
 import { InboundMessagesPage } from '/imports/ui/pages/InboundMessagesPage';
 import { LocationsPage } from '/imports/ui/workflows/locations/LocationsPage';
 import { MainIndex } from '/imports/ui/pages/MainIndex';
@@ -242,9 +242,9 @@ Meteor.startup(() => {
       
               {/* <Route name="procedures" path="/procedures" component={ ProceduresPage }  onEnter={ requireAuth }/> */}
               {/* <Route name="allergies" path="/allergies" component={ AllergyIntolerancesPage }  onEnter={ requireAuth }/> */}
-              <Route name="immunizations" path="/immunizations" component={ ImmunizationsPage }  onEnter={ requireAuth }/>
+              {/* <Route name="immunizations" path="/immunizations" component={ ImmunizationsPage }  onEnter={ requireAuth }/> */}
           
-              <Route name="GoalsPage" path="/goals" component={ GoalsPage }  onEnter={ requireAuth }/>
+              {/* <Route name="GoalsPage" path="/goals" component={ GoalsPage }  onEnter={ requireAuth }/> */}
               {/* <Route name="CarePlansPage" path="/care-plans" component={ CarePlansPage }  onEnter={ requireAuth }/> */}
               <Route name="CarePlanDesignerPage" path="/careplan-designer" component={ CarePlanDesignerPage }  onEnter={ requireAuth }/>
               {/* <Route name="DiagnosticReportsPage" path="/diagnostic-reports" component={ DiagnosticReportsPage }  onEnter={ requireAuth }/> */}

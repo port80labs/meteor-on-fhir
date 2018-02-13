@@ -16,28 +16,27 @@ import {
   TableRow,
   TableRowColumn,
 } from 'material-ui/Table';
+import { VerticalCanvas, FullPageCanvas, GlassCard, DynamicSpacer } from 'meteor/clinical:glass-ui';
 import { get, has } from 'lodash';
 
 import { ObservationsTable } from 'meteor/clinical:hl7-resource-observation';
 import { AllergyIntolerancesTable } from 'meteor/clinical:hl7-resource-allergy-intolerance';
 import { ConditionsTable } from 'meteor/clinical:hl7-resource-condition';
+import { ImmunizationsTable } from 'meteor/clinical:hl7-resource-immunization';
+import { CarePlansTable } from 'meteor/clinical:hl7-resource-careplan';
 
-import Avatar from 'material-ui/Avatar';
-import CarePlansTable from '/imports/ui/workflows/carePlans/CarePlansTable';
 import DiagnosticReportsTable from '/imports/ui/workflows/diagnosticReports/DiagnosticReportsTable';
-import FlatButton from 'material-ui/FlatButton';
-import { FullPageCanvas } from '/imports/ui/layouts/FullPageCanvas';
-import { VerticalCanvas } from '/imports/ui/layouts/VerticalCanvas';
-import { GlassCard } from '/imports/ui/components/GlassCard';
-import ImmunizationsTable from '/imports/ui/workflows/immunizations/ImmunizationsTable';
-import ImagingStudiesTable from '/imports/ui/workflows/imaging-studies/ImagingStudiesTable';
 import MedicationStatementsTable from '/imports/ui/workflows/medicationStatements/MedicationStatementsTable';
 import ProceduresTable from '/imports/ui/workflows/procedures/ProceduresTable';
-// import ObservationsTable from '/imports/ui/workflows/observations/ObservationsTable';
+import ImagingStudiesTable from '/imports/ui/workflows/imaging-studies/ImagingStudiesTable';
+
+import Avatar from 'material-ui/Avatar';
+import FlatButton from 'material-ui/FlatButton';
+
 import React from 'react';
 import { ReactMeteorData } from 'meteor/react-meteor-data';
 import ReactMixin from 'react-mixin';
-import Spacer from '/imports/ui/components/Spacer';
+
 import { browserHistory } from 'react-router';
 
 export class ContinuityOfCarePage extends React.Component {
@@ -116,7 +115,7 @@ export class ContinuityOfCarePage extends React.Component {
                     <FlatButton label='Add' onClick={ this.openLink.bind(this, '/allergies') } />
                   </CardActions>
                 </GlassCard>        
-                <Spacer />
+                <DynamicSpacer />
 
                 <GlassCard>
                   <CardTitle title="CarePlans" />
@@ -130,7 +129,7 @@ export class ContinuityOfCarePage extends React.Component {
                     <FlatButton label='Add' onClick={ this.openLink.bind(this, '/care-plans') } />
                   </CardActions>
                 </GlassCard>        
-                <Spacer />
+                <DynamicSpacer />
 
 
                 <GlassCard>
@@ -145,7 +144,7 @@ export class ContinuityOfCarePage extends React.Component {
                     <FlatButton label='Add' onClick={ this.openLink.bind(this, '/conditions') } />
                   </CardActions>
                 </GlassCard>        
-                <Spacer />                
+                <DynamicSpacer />                
 
                 <GlassCard>
                   <CardTitle title="Diagnostic Reports" />
@@ -160,7 +159,7 @@ export class ContinuityOfCarePage extends React.Component {
                   <FlatButton label='Add' onClick={ this.openLink.bind(this, '/diagnostic-reports') } />
                   </CardActions>
                 </GlassCard>        
-                <Spacer />
+                <DynamicSpacer />
 
                 <GlassCard>
                   <CardTitle title="ImagingStudies" />
@@ -174,7 +173,7 @@ export class ContinuityOfCarePage extends React.Component {
                     <FlatButton label='Add' onClick={ this.openLink.bind(this, '/imaging-studies') } />
                   </CardActions> */}
                 </GlassCard>        
-                <Spacer />
+                <DynamicSpacer />
 
                 <GlassCard>
                   <CardTitle title="Immunizations" />
@@ -188,7 +187,7 @@ export class ContinuityOfCarePage extends React.Component {
                     <FlatButton label='Add' onClick={ this.openLink.bind(this, '/immunizations') } />
                   </CardActions>
                 </GlassCard>        
-                <Spacer />
+                <DynamicSpacer />
 
 
                 {/* <GlassCard>
@@ -204,7 +203,7 @@ export class ContinuityOfCarePage extends React.Component {
                     <FlatButton label='Add' onClick={ this.openLink.bind(this, '/medications') } />
                   </CardActions>
                 </GlassCard>        
-                <Spacer /> */}
+                <DynamicSpacer /> */}
 
 
 
@@ -221,7 +220,7 @@ export class ContinuityOfCarePage extends React.Component {
                     <FlatButton label='Add' onClick={ this.openLink.bind(this, '/medication-statements') } />
                   </CardActions> */}
                 </GlassCard>        
-                <Spacer />
+                <DynamicSpacer />
 
                 <GlassCard>
                   <CardTitle title="Observations" />
@@ -237,7 +236,7 @@ export class ContinuityOfCarePage extends React.Component {
                     <FlatButton label='Add' onClick={ this.openLink.bind(this, '/observations') } />
                   </CardActions> */}
                 </GlassCard>        
-                <Spacer />
+                <DynamicSpacer />
 
 
                 <GlassCard>
@@ -253,7 +252,7 @@ export class ContinuityOfCarePage extends React.Component {
                     <FlatButton label='Add' onClick={ this.openLink.bind(this, '/procedures') } />
                   </CardActions>
                 </GlassCard>        
-                <Spacer />
+                <DynamicSpacer />
 
 
 
