@@ -12,6 +12,8 @@ import ReactMixin  from 'react-mixin';
 import { Session } from 'meteor/session';
 import User from '/imports/api/User';
 
+import { has, get } from 'lodash';
+
 Session.setDefault('backgroundImagePath', 'url(\"images\/ForestInMist.jpg\")');
 Session.setDefault('backgroundColor', '#eeeeee');
 Session.setDefault('darkroomEnabled', false);
@@ -33,6 +35,7 @@ export class SinglePanelLayout extends React.Component {
     let data = {
       state: {
         drawerActive: Session.get('drawerActive'),
+        dockedSidebar: false,
         isAdmin: false
       },
       style: {
@@ -80,6 +83,10 @@ export class SinglePanelLayout extends React.Component {
       data.style.backgroundImagePath = Session.get('backgroundImagePath');
     }
 
+    if(get(Meteor, 'settings.public.defaults.sidebar.docked')){
+      data.state.dockedSidebar = get(Meteor, 'settings.public.defaults.sidebar.docked');
+    }
+
     return data;
   }
   toggleDrawerActive(){
@@ -114,7 +121,7 @@ export class SinglePanelLayout extends React.Component {
       <div id='SinglePanelLayout'>
         <Drawer
           open={this.data.state.drawerActive}
-          docked={false}
+          docked={this.data.state.dockedSidebar}
           onRequestChange={ this.closeOpenedSidebar }
           >
 

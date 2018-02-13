@@ -4,7 +4,6 @@ import { OTPublisher, OTSession, OTStreams, OTSubscriber } from 'opentok-react';
 import Glass from '/imports/ui/Glass';
 import { GlassCard } from '/imports/ui/components/GlassCard';
 import { Meteor } from 'meteor/meteor';
-import { PractitionersTable } from '/imports/ui/workflows/practitioners/PractitionersTable';
 import RaisedButton from 'material-ui/RaisedButton';
 import React  from 'react';
 import { ReactMeteorData } from 'meteor/react-meteor-data';
@@ -14,6 +13,9 @@ import { Table } from 'react-bootstrap';
 import { UserTable } from '/imports/ui/workflows/users/UserTable';
 import { VerticalCanvas } from '/imports/ui/components/VerticalCanvas';
 import { get } from 'lodash';
+
+import { PractitionersTable } from 'meteor/clinical:hl7-resource-practitioner';
+
 
 export class TelemedicinePage extends React.Component {
   getMeteorData() {

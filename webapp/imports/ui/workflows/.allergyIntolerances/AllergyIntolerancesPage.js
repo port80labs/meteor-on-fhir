@@ -1,8 +1,9 @@
 import { CardText, CardTitle } from 'material-ui/Card';
 import {Tab, Tabs} from 'material-ui/Tabs';
 
-import AllergyIntoleranceDetail from '/imports/ui/workflows/allergyIntolerances/AllergyIntoleranceDetail';
-import AllergyIntolerancesTable from '/imports/ui/workflows/allergyIntolerances/AllergyIntolerancesTable';
+// import AllergyIntoleranceDetail from '/imports/ui/workflows/allergyIntolerances/AllergyIntoleranceDetail';
+// import AllergyIntolerancesTable from '/imports/ui/workflows/allergyIntolerances/AllergyIntolerancesTable';
+
 import { GlassCard } from '/imports/ui/components/GlassCard';
 import { Meteor } from 'meteor/meteor';
 import React  from 'react';

@@ -16,6 +16,8 @@ import { Session } from 'meteor/session';
 import TextField from 'material-ui/TextField';
 import { browserHistory } from 'react-router';
 
+import { get } from 'lodash';
+
 Sidebar = {
   lastUpdate: new Date(),
   toggle: function(){
@@ -162,8 +164,8 @@ export class Header extends React.Component {
 
   goHome(){
     // not every wants the hexgrid menu, so we make sure it's configurable in the Meteor.settings file
-    if(Meteor.settings && Meteor.settings.public && Meteor.settings.public.defaults && Meteor.settings.public.defaults.hexgridMenu){
-      browserHistory.push('/hexgrid');
+    if(get(Meteor, 'settings.public.defaults.route')){
+      browserHistory.push(get(Meteor, 'settings.public.defaults.route', '/'));
     } else {
       browserHistory.push('/');      
     }

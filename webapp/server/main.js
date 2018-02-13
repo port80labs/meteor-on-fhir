@@ -1,7 +1,5 @@
 import '/imports/server';
 import '/imports/api/users/methods';
-import '/imports/api/practitioners/methods';
-import '/imports/ui/workflows/patients/methods';
 
 import { get, has } from 'lodash';
 
@@ -38,7 +36,6 @@ Meteor.startup(function (){
   });
 
 });
-
 
 
 if(!has(Meteor, 'settings.private')) {

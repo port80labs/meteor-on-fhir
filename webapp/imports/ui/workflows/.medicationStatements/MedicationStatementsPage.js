@@ -1,14 +1,15 @@
 import { CardText, CardTitle } from 'material-ui/Card';
 import {Tab, Tabs} from 'material-ui/Tabs';
+import { GlassCard, VerticalCanvas, Glass } from 'meteor/clinical:glass-ui';
 
-import { GlassCard } from '/imports/ui/components/GlassCard';
-import MedicationStatementDetail from '/imports/ui/workflows/medicationStatements/MedicationStatementDetail';
-import MedicationStatementsTable from '/imports/ui/workflows/medicationStatements/MedicationStatementsTable';
+import { MedicationStatementDetail, MedicationStatementsTable} from 'meteor/clinical:hl7-resource-medication-statement';
+
 import { Meteor } from 'meteor/meteor';
+import { Session } from 'meteor/session';
+
 import React  from 'react';
 import { ReactMeteorData } from 'meteor/react-meteor-data';
 import ReactMixin  from 'react-mixin';
-import { VerticalCanvas } from '/imports/ui/components/VerticalCanvas';
 
 export class MedicationStatementsPage extends React.Component {
   getMeteorData() {
@@ -20,17 +21,10 @@ export class MedicationStatementsPage extends React.Component {
           borderRight: 'none'
         }
       },
-      state: {
-        isLoggedIn: false
-      },
       tabIndex: Session.get('medicationStatementPageTabIndex'),
       medicationStatementSearchFilter: Session.get('medicationStatementSearchFilter'),
       currentMedicationStatement: Session.get('selectedMedicationStatement')
     };
-
-    if (Meteor.user()) {
-      data.state.isLoggedIn = true;
-    }
 
     data.style = Glass.blur(data.style);
     data.style.appbar = Glass.darkroom(data.style.appbar);

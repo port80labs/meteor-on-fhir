@@ -1,7 +1,7 @@
 
 
-import User from "../../api/User";
+// import User from "../../api/User";
 
-Practitioners._transform = function (document) {
-  return new User(document);
-};
+// Practitioners._transform = function (document) {
+//   return new User(document);
+// };

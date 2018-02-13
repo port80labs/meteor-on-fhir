@@ -4,7 +4,7 @@ import { Tab, Tabs } from 'material-ui/Tabs';
 import Glass from '/imports/ui/Glass';
 import { GlassCard } from '/imports/ui/components/GlassCard';
 import PatientDetail from '/imports/ui/workflows/patients/PatientDetail';
-import PatientTable from '/imports/ui/workflows/patients/PatientTable';
+import { PatientTable } from 'meteor/clinical:hl7-resource-patient'
 import React from 'react';
 import { ReactMeteorData } from 'meteor/react-meteor-data';
 import ReactMixin from 'react-mixin';

@@ -3,7 +3,7 @@ import { Card, CardHeader, CardText, CardTitle } from 'material-ui/Card';
 import AccountCircle from 'material-ui/svg-icons/action/account-circle';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import PatientTable from '/imports/ui/workflows/patients/PatientTable';
+import { PatientTable } from 'meteor/clinical:hl7-resource-patient'
 import React from 'react';
 import { ReactMeteorData } from 'meteor/react-meteor-data';
 import ReactMixin from 'react-mixin';
