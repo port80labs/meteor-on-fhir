@@ -2,8 +2,7 @@ import { CardText, CardTitle } from 'material-ui/Card';
 import {Tab, Tabs} from 'material-ui/Tabs';
 import { GlassCard, VerticalCanvas, Glass } from 'meteor/clinical:glass-ui';
 
-import DiagnosticReportDetail from '/imports/ui/workflows/diagnosticReports/DiagnosticReportDetail';
-import DiagnosticReportsTable from '/imports/ui/workflows/diagnosticReports/DiagnosticReportsTable';
+import { DiagnosticReportDetail, DiagnosticReportsTable } from 'meteor/clinical:hl7-resource-diagnostic-report';
 
 import { Meteor } from 'meteor/meteor';
 import { Session } from 'meteor/session';

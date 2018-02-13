@@ -2,8 +2,8 @@ import { CardText, CardTitle } from 'material-ui/Card';
 import { Tab, Tabs } from 'material-ui/Tabs';
 import { GlassCard, VerticalCanvas, Glass } from 'meteor/clinical:glass-ui';
 
-import PractitionerDetail  from '/imports/ui/workflows/practitioners/PractitionerDetail';
-import PractitionersTable  from '/imports/ui/workflows/practitioners/PractitionersTable';
+import { PractitionersTable, PractitionerDetail } from 'meteor/clinical:hl7-resource-practitioner';
+
 import React  from 'react';
 import { ReactMeteorData } from 'meteor/react-meteor-data';
 import ReactMixin  from 'react-mixin';

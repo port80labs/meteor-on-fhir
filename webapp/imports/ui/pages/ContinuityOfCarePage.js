@@ -25,9 +25,9 @@ import { ConditionsTable } from 'meteor/clinical:hl7-resource-condition';
 import { ImmunizationsTable } from 'meteor/clinical:hl7-resource-immunization';
 import { CarePlansTable } from 'meteor/clinical:hl7-resource-careplan';
 import { MedicationStatementsTable } from 'meteor/clinical:hl7-resource-medication-statement';
+import { DiagnosticReportsTable } from 'meteor/clinical:hl7-resource-diagnostic-report';
+import { ProceduresTable } from 'meteor/clinical:hl7-resource-procedure';
 
-import DiagnosticReportsTable from '/imports/ui/workflows/diagnosticReports/DiagnosticReportsTable';
-import ProceduresTable from '/imports/ui/workflows/procedures/ProceduresTable';
 import ImagingStudiesTable from '/imports/ui/workflows/imaging-studies/ImagingStudiesTable';
 
 import Avatar from 'material-ui/Avatar';

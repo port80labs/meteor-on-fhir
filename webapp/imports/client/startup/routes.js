@@ -42,7 +42,7 @@ import { HexGridPage } from '/imports/ui/pages/HexGridPage';
 import { ImagingStudiesPage } from '/imports/ui/workflows/imaging-studies/ImagingStudiesPage';
 // import { ImmunizationsPage } from '/imports/ui/workflows/immunizations/ImmunizationsPage';
 import { InboundMessagesPage } from '/imports/ui/pages/InboundMessagesPage';
-import { LocationsPage } from '/imports/ui/workflows/locations/LocationsPage';
+// import { LocationsPage } from '/imports/ui/workflows/locations/LocationsPage';
 import { MainIndex } from '/imports/ui/pages/MainIndex';
 // import { MathPage } from '/imports/ui/pages/experimental/MathPage';
 // import { MedicationOrdersPage } from '/imports/ui/workflows/medicationOrders/MedicationOrdersPage';
@@ -170,9 +170,6 @@ Meteor.startup(() => {
               <Route name="theming" path="/theming" component={ ThemePage } onEnter={ requireAuth } />
               <Route name="myprofile" path="/myprofile" component={ MyProfilePage } onEnter={ requireAuth } />
       
-              {/* <Route name="practitioners" path="/practitioners" component={ PractitionersPage } /> */}
-
-              {/* <Route name="patients" path="/patients" component={ PatientsPage } onEnter={ requireAuth } /> */}
               <Route name="users" path="/users" component={ UsersPage } onEnter={ requireAuth } />
       
               {/* <Route name="support" path="/support" component={ ForumPage } />
@@ -197,24 +194,34 @@ Meteor.startup(() => {
               <Route name="dataManagement" path="/data-management" component={ DataManagementPage }  onEnter={ requireAuth }/>
               <Route name="dataImport" path="/data-import" component={ DataImportPage }  onEnter={ requireAuth }/>
       
+              {/* <Route name="practitioners" path="/practitioners" component={ PractitionersPage } /> */}
+              {/* <Route name="patients" path="/patients" component={ PatientsPage } onEnter={ requireAuth } /> */}
               {/* <Route name="observation" path="/observations" component={ ObservationsPage }  onEnter={ requireAuth }/> */}
-              {/* <Route name="bodySites" path="/body-sites" component={ BodySitesPage } onEnter={ requireAuth }/> */}
-      
+              {/* <Route name="bodySites" path="/body-sites" component={ BodySitesPage } onEnter={ requireAuth }/> */}      
               {/* <Route name="medications" path="/medications" component={ MedicationsPage }  onEnter={ requireAuth }/> */}
+              {/* <Route name="conditions" path="/conditions" component={ ConditionsPage }  onEnter={ requireAuth }/> */}
+              {/* <Route name="devices" path="/devices" component={ DevicesPage }  onEnter={ requireAuth }/> */}
+              {/* <Route name="locations" path="/locations" component={ LocationsPage }  onEnter={ requireAuth }/> */}
+              {/* <Route name="riskAssessments" path="/risk-assessments" component={ RiskAssessmentsPage }  onEnter={ requireAuth } /> */}
+              {/* <Route name="procedures" path="/procedures" component={ ProceduresPage }  onEnter={ requireAuth }/> */}
+              {/* <Route name="allergies" path="/allergies" component={ AllergyIntolerancesPage }  onEnter={ requireAuth }/> */}
+              {/* <Route name="immunizations" path="/immunizations" component={ ImmunizationsPage }  onEnter={ requireAuth }/> */}
+              {/* <Route name="DiagnosticReportsPage" path="/diagnostic-reports" component={ DiagnosticReportsPage }  onEnter={ requireAuth }/> */}
+              {/* <Route name="MedicationOrdersPage" path="/medication-orders" component={ MedicationOrdersPage }  onEnter={ requireAuth }/> */}
+              {/* <Route name="MedicationStatementsPage" path="/medication-statements" component={ MedicationStatementsPage }  onEnter={ requireAuth }/> */}
+              {/* <Route name="GoalsPage" path="/goals" component={ GoalsPage }  onEnter={ requireAuth }/> */}
+              {/* <Route name="CarePlansPage" path="/care-plans" component={ CarePlansPage }  onEnter={ requireAuth }/> */}
+
               <Route name="checklists" path="/checklists" component={ ChecklistsPage }  onEnter={ requireAuth }/>
               <Route name="imagingStudies" path="/radiology" component={ ImagingStudiesPage }  onEnter={ requireAuth }/>
               <Route name="genome" path="/my-genome" component={ GenomePage }  onEnter={ requireAuth }/>
       
               <Route name="myConditions" path="/my-conditions" component={ MyConditions }  />
       
-              {/* <Route name="conditions" path="/conditions" component={ ConditionsPage }  onEnter={ requireAuth }/> */}
-              {/* <Route name="devices" path="/devices" component={ DevicesPage }  onEnter={ requireAuth }/> */}
               <Route name="telemedicine" path="/videoconferencing" component={ TelemedicinePage }  onEnter={ requireAuth }/>
-              <Route name="locations" path="/locations" component={ LocationsPage }  onEnter={ requireAuth }/>
               <Route name="dermatograms" path="/dermatograms" component={ DermatogramsPage }  onEnter={ requireAuth }/>
               <Route name="questionnaires" path="/questionnaires" component={ QuestionnairesPage }  onEnter={ requireAuth }/>
               <Route name="questionnaireResponses" path="/questionnaire-responses" component={ QuestionnaireResponsesPage }  onEnter={ requireAuth }/> */}
-              {/* <Route name="riskAssessments" path="/risk-assessments" component={ RiskAssessmentsPage }  onEnter={ requireAuth } /> */}
       
               <Route name="notifications" path="/notifications" component={ NotificationsPage }  onEnter={ requireAuth }/>
       
@@ -240,17 +247,7 @@ Meteor.startup(() => {
               <Route name="SciFiPage" path="/scifi" component={ SciFiPage } />
       
       
-              {/* <Route name="procedures" path="/procedures" component={ ProceduresPage }  onEnter={ requireAuth }/> */}
-              {/* <Route name="allergies" path="/allergies" component={ AllergyIntolerancesPage }  onEnter={ requireAuth }/> */}
-              {/* <Route name="immunizations" path="/immunizations" component={ ImmunizationsPage }  onEnter={ requireAuth }/> */}
-          
-              {/* <Route name="GoalsPage" path="/goals" component={ GoalsPage }  onEnter={ requireAuth }/> */}
-              {/* <Route name="CarePlansPage" path="/care-plans" component={ CarePlansPage }  onEnter={ requireAuth }/> */}
-              <Route name="CarePlanDesignerPage" path="/careplan-designer" component={ CarePlanDesignerPage }  onEnter={ requireAuth }/>
-              {/* <Route name="DiagnosticReportsPage" path="/diagnostic-reports" component={ DiagnosticReportsPage }  onEnter={ requireAuth }/> */}
-              {/* <Route name="MedicationOrdersPage" path="/medication-orders" component={ MedicationOrdersPage }  onEnter={ requireAuth }/>
-              <Route name="MedicationStatementsPage" path="/medication-statements" component={ MedicationStatementsPage }  onEnter={ requireAuth }/> */}
-      
+              <Route name="CarePlanDesignerPage" path="/careplan-designer" component={ CarePlanDesignerPage }  onEnter={ requireAuth }/>      
               <Route name="ContinuityOfCarePage" path="/continuity-of-care" component={ ContinuityOfCarePage }  onEnter={ requireAuth }/>
 
 
