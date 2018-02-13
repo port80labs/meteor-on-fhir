@@ -22,7 +22,11 @@ import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import { get } from 'lodash';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
+import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
+
+import { Meteor } from 'meteor/meteor';
+import { Session } from 'meteor/session';
 
 import { get, has } from 'lodash';
 // import { RouteTransition } from 'react-router-transition';
@@ -84,7 +88,7 @@ export class App extends React.Component {
       },
       browserWindowLocation: 'https://www.ncbi.nlm.nih.gov', 
       catchDialog: {
-        open: Session.get('catchDialogOpen'),
+        open: false,
         patient: {
           display: '',
           reference: ''
@@ -93,8 +97,12 @@ export class App extends React.Component {
       user: Meteor.user()
     };
 
-    if(get(Meteor.user(), 'profile.youHaveMail')){
-      data.catchDialog.open = true;
+    // if(get(Meteor.user(), 'profile.youHaveMail')){
+    //   data.catchDialog.open = true;
+    // }
+
+    if(Session.get('catchDialogOpen')){
+      data.catchDialog.open = Session.get('catchDialogOpen');
     }
     
 
@@ -164,7 +172,7 @@ export class App extends React.Component {
   }
   render(){
     var orbital;
-    if(Meteor.settings && Meteor.settings.public && Meteor.settings.public.defaults && Meteor.settings.public.defaults.nfcOrbital){
+    if(get(Meteor, 'settings.public.defaults.nfcOrbital')){
       orbital = <SciFiPage />;
     }
     const catchActions = [
@@ -172,12 +180,12 @@ export class App extends React.Component {
         label="Accept"
         primary={true}
         keyboardFocused={true}
-        onTouchTap={this.handleClosePatients}
+        onTouchTap={this.handleCloseCatch}
       />,
       <FlatButton
         label="Dismiss"
         primary={true}
-        onTouchTap={this.handleClosePatients}
+        onTouchTap={this.handleCloseCatch}
       />
     ];
 
@@ -207,21 +215,21 @@ export class App extends React.Component {
                 { this.renderSecondaryPanel() }
               </VerticalCanvas>
             </div>
-            <Dialog
-              title="Catch!"
-              actions={catchActions}
-              modal={true}
-              open={this.data.catchDialog.open}
-              onRequestClose={this.handleCloseCatch}
-            >
-              <GlassCard>
-                <CardHeader title="Incoming Patient Chart" />
-                <CardText>
-                  Patient Chart
-                </CardText>
-              </GlassCard>
-            </Dialog>
           <Footer />
+          {/* <Dialog
+            title="Catch!"
+            actions={catchActions}
+            modal={false}
+            open={this.data.catchDialog.open}
+            onRequestClose={this.handleCloseCatch}
+          >
+            <GlassCard>
+              <CardHeader title="Incoming Patient Chart" />
+              <CardText>
+                Patient Chart
+              </CardText>
+            </GlassCard>
+          </Dialog> */}
         </SinglePanelLayout>
 
       </GlassApp>
